@@ -3,5 +3,9 @@ Repository for capstone project done as part of University of California San Die
 
 ### Project author: Laura G. Funderburk
 
+### Scrapy data download
+
+
+
 
 
