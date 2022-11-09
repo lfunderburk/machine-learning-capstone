@@ -143,7 +143,7 @@ toml==0.10.2
 tornado==6.2
 traitlets
 Twisted==22.8.0
-twisted-iocpsupport==1.0.2
+#twisted-iocpsupport==1.0.2
 typing_extensions==4.3.0
 urllib3==1.26.11
 w3lib==2.0.1
