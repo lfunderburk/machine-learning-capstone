@@ -80,23 +80,23 @@ def extract_raw_data(url:str):
         # Perform query
         csv_req = requests.get(url)
         # Parse content
-        url_content = csv_req.content
+        url_content = csv_req
         
         return url_content
     except requests.exceptions.HTTPError as errh:
-        print ("Http Error:",errh)
+        print("Http Error:",errh)
     except requests.exceptions.ConnectionError as errc:
-        print ("Error Connecting:",errc)
+        print("Error Connecting:",errc)
     except requests.exceptions.Timeout as errt:
-        print ("Timeout Error:",errt)
+        print("Timeout Error:",errt)
     except requests.exceptions.RequestException as err:
-        print ("OOps: Something Else",err)
+        print("OOps: Something Else",err)
 
 def save_raw_data(folder_path: str, url_content: str):
     """This function saves the raw data obtained using extract_raw_data() into a CSV file"""
     # Save content into file
     csv_file = open(Path(folder_path,file_name), 'wb')
-    csv_file.write(url_content)
+    csv_file.write(url_content.content)
     csv_file.close()
 
 def read_and_clean_csv_file(folder_path, csv_file_name):
@@ -129,8 +129,6 @@ def read_and_clean_csv_file(folder_path, csv_file_name):
 
     return final_df
     
-
-
 def convert_model_key_words(s, dictionary):
     """Add values from footnote"""
 
@@ -169,4 +167,18 @@ if __name__=='__main__':
         save_raw_data(raw_data_path,item_based_url)
         
         # Read and clean csv file
-        final_df = read_and_clean_csv_file(raw_data_path, item[1]['name'].replace(" ","_")+".csv")
+        final_df = read_and_clean_csv_file(raw_data_path, name.replace(" ","_")+".csv")
+
+        # Populate dataframe with information from the footnotes
+        if "electric" in name:
+            final_df["type_of_wheel_drive"] = final_df['model.1_'].apply(lambda x: convert_model_key_words(x, model_dict)) 
+            final_df["type_of_transmission"] = final_df['transmission_'].apply(lambda x: convert_model_key_words(x, transmission_dict)) 
+            electric_based_df.append(final_df)
+            final_df.to_csv(Path(clean_data_path,f'{file_name}'))
+        
+        else:
+            final_df["type_of_wheel_drive"] = final_df['model.1_'].apply(lambda x: convert_model_key_words(x, model_dict)) 
+            final_df["type_of_transmission"] = final_df['transmission_'].apply(lambda x: convert_model_key_words(x, transmission_dict)) 
+            final_df["type_of_fuel"] = final_df['fuel_type'].apply(lambda x: convert_model_key_words(x, fuel_dict)) 
+            fuel_based_df.append(final_df)
+            final_df.to_csv(Path(clean_data_path,f'{file_name}'))

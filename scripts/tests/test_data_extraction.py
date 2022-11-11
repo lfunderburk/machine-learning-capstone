@@ -1,9 +1,21 @@
 import pytest
-from scripts.data_extraction import extract_raw_data, save_raw_data
+from scripts.data_extraction import extract_raw_data
 
-def test_extract_raw_data():
-    url = "https://www.fueleconomy.gov/feg/download.shtml"
-    df = extract_raw_data(url)
-    assert df.shape[0] > 0
-    assert df.shape[1] > 0
-    assert df.columns[0] == "Model"
+def test_200_response_extract_raw_data():
+    url = 'https://www.nrcan.gc.ca/sites/nrcan/files/oee/files/csv/MY2022%20Fuel%20Consumption%20Ratings.csv'
+    url_content = extract_raw_data(url)
+    assert url_content.status_code == 200
+    
+
+def test_no_none_extract_raw_data():
+    url = 'https://www.nrcan.gc.ca/sites/nrcan/files/oee/files/csv/MY2022%20Fuel%20Consumption%20Ratings.csv'
+    url_content = extract_raw_data(url).content
+    assert url_content is not None
+
+def test_type_extract_raw_data():
+    url = 'https://www.nrcan.gc.ca/sites/nrcan/files/oee/files/csv/MY2022%20Fuel%20Consumption%20Ratings.csv'
+    url_content = extract_raw_data(url).content
+    assert type(url_content) == bytes
+
+
+
