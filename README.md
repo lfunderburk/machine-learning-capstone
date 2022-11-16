@@ -30,9 +30,7 @@ python -m ipykernel install --user --name ml-project-env --display-name "Python 
 
 ## Using the data pipeline
 
-This script uses Scrapy to scrape data from a website. Sample execution for this page
-
-https://www.goodcarbadcar.net/2019-canada-vehicle-sales-figures-by-model/#monthlysales/
+This script uses Scrapy to scrape data from the following website: https://www.goodcarbadcar.net/
 
 ```
 cd scripts/scrape_car_sales/scrape_car_sales/
