@@ -3,22 +3,23 @@ from scripts.data_extraction import read_and_clean_csv_file
 from scripts.data_extraction import extract_raw_data
 import sys, os
 from pathlib import Path
+import pandas as pd
 
 # Paths exist
 def test_data_folder_exists():
-    sys.path.append(os.path.abspath(os.path.join('./data/')))
+    sys.path.append(os.path.abspath(os.path.join('..',"./data")))
     paths = sys.path
     ml_path = [item for item in paths if "machine-learning-capstone\\data" in item]
     assert len(ml_path)==1
 
 def test_raw_data_folder_exists():
-    sys.path.append(os.path.abspath(os.path.join('./data/raw-data/')))
+    sys.path.append(os.path.abspath(os.path.join('..','./data/raw-data/')))
     paths = sys.path
     ml_path = [item for item in paths if "machine-learning-capstone\\data\\raw-data" in item]
     assert len(ml_path)==1
 
 def test_clean_data_folder_exists():
-    sys.path.append(os.path.abspath(os.path.join('./data/clean-data/')))
+    sys.path.append(os.path.abspath(os.path.join('..','./data/clean-data/')))
     paths = sys.path
     ml_path = [item for item in paths if "machine-learning-capstone\\data\\clean-data" in item]
     assert len(ml_path)==1
@@ -54,14 +55,17 @@ def test_name_non_empty_fuel_consumption_metadata_extraction():
 
 # Tests for read_and_clean_csv_file
 def test_clean_fuel_consumption():
-    folder_path =  Path("C:/Users/Laura GF/Documents/GitHub/machine-learning-capstone/data/raw-data/") 
-    name = "2022_Fuel_Consumption_Ratings_(2022-08-18)"
-    final_df = read_and_clean_csv_file(folder_path, name.replace(" ","_")+".csv")
-    test_cols= final_df.columns == ['model_year', 'make_', 'model.1_', 'vehicleclass_', 
-                                    'enginesize_(l)','cylinders_', 'transmission_', 'fuel_type',
+    sys.path.append(os.path.abspath(os.path.join('..','./data/clean-data/')))
+    paths = sys.path
+    ml_path = [item for item in paths if "machine-learning-capstone\\data\\clean-data" in item] 
+    folder_path = ml_path[0]
+    final_df = pd.read_csv(Path(folder_path, "1995_2022_vehicle_fuel_consumption.csv"))
+    test_cols= final_df.columns == ['model_year', 'make_', 'model.1_', 'vehicleclass_', 'enginesize_(l)',
+                                    'cylinders_', 'transmission_', 'fuel_type',
                                     'fuelconsumption_city(l/100km)', 'fuelconsumption_hwy(l/100km)',
                                     'fuelconsumption_comb(l/100km)', 'fuelconsumption_comb(mpg)',
-                                    'co2emissions_(g/km)', 'co2_rating', 'smog_rating']
+                                    'co2emissions_(g/km)', 'co2_rating', 'smog_rating', 'transmission_type',
+                                    'number_of_gears', 'mapped_fuel_type', 'type_of_wheel_drive']
     assert all(test_cols)==True
 
 # Tests for extract_raw_data

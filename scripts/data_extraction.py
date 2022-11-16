@@ -16,14 +16,14 @@ global transmission_dict
 global fuel_dict
 global stats_can_dict 
 
-model_dict = {"4WD/4X4":"Four-wheel drive",
-	      "AWD": "All-wheel drive",
-	      "FFV": "Flexible-fuel vehicle",
-	      "SWB": "Short wheelbase",
-	      "LWB" : "Long wheelbase",
-	      "EWB" : "Extended wheelbase",
-	      "CNG" : "Compressed natural gas",
-	      "NGV" : "Natural gas vehicle",
+model_dict = {"4wd/4X4":"Four-wheel drive",
+	      "awd": "All-wheel drive",
+	      "ffv": "Flexible-fuel vehicle",
+	      "swb": "Short wheelbase",
+	      "lwb" : "Long wheelbase",
+	      "ewb" : "Extended wheelbase",
+	      "cng" : "Compressed natural gas",
+	      "ngv" : "Natural gas vehicle",
 	      "#" : "High output engine that provides more power than the standard engine of the same size"
  }
 
@@ -174,9 +174,32 @@ def read_and_clean_csv_file(folder_path, csv_file_name) -> pd.DataFrame:
     for itema,itemb in zip(cleaned_cols, str_non_nan):
         new_cols.append(f'{itema}_{itemb}'.lower().replace("*","").replace(" ","").replace(r'#=highoutputengine',""))
 
-
+    # Reset column names
     final_df = sample_df_no_footer.iloc[1:, ].copy()
     final_df.columns = new_cols
+
+    # Additional data cleaning
+    final_df.drop_duplicates(keep='first', inplace=True)
+
+    # Turn make, model.1_, vehicleclass_ into lowercase
+    final_df['make_'] = final_df['make_'].str.lower()
+    final_df['model.1_'] = final_df['model.1_'].str.lower()
+    final_df['vehicleclass_'] = final_df['vehicleclass_'].str.lower()
+
+    # Character cleaning for vehicleclass_: replace ":" with "-"
+    final_df['vehicleclass_'] = final_df['vehicleclass_'].str.replace(":"," -")
+
+    # Turn make, model.1_, vehicleclass_ into categorical variables
+    final_df['make_'] = final_df['make_'].astype('category')
+    final_df['model.1_'] = final_df['model.1_'].astype('category')
+    final_df['vehicleclass_'] = final_df['vehicleclass_'].astype('category')
+
+    # Mappings
+    final_df = final_df.join(final_df['transmission_'].str.split(r'(\d+)', \
+        expand=True).drop(columns=[2]).rename(columns={
+                                                        0:"transmission_type",
+                                                        1:"number_of_gears"}))
+    final_df['transmission_type'] = final_df['transmission_type'].map(transmission_dict)
 
     return final_df
     
@@ -236,7 +259,6 @@ if __name__=='__main__':
     
     # Master dataframe initialization
     fuel_based_df = []
-    electric_based_df = []
 
     # Fuel consumption metadata extraction urls
     data_entries_english = fuel_consumption_metadata_extraction()
@@ -259,23 +281,21 @@ if __name__=='__main__':
 
         # Populate dataframe with information from the footnotes
         if "electric" in name:
-            final_df["type_of_wheel_drive"] = final_df['model.1_'].apply(lambda x: convert_model_key_words(x, model_dict)) 
-            final_df["type_of_transmission"] = final_df['transmission_'].apply(lambda x: convert_model_key_words(x, transmission_dict)) 
-            electric_based_df.append(final_df)
-            
+            final_df.to_csv(Path(clean_data_path,file_name), index=False)
         else:
+            final_df['mapped_fuel_type'] = final_df['fuel_type'].map(fuel_dict)
             final_df["type_of_wheel_drive"] = final_df['model.1_'].apply(lambda x: convert_model_key_words(x, model_dict)) 
-            final_df["type_of_transmission"] = final_df['transmission_'].apply(lambda x: convert_model_key_words(x, transmission_dict)) 
-            final_df["type_of_fuel"] = final_df['fuel_type'].apply(lambda x: convert_model_key_words(x, fuel_dict)) 
             fuel_based_df.append(final_df)
 
     # Concatenate all dataframes
     fuel_based_df = pd.concat(fuel_based_df)
-    electric_based_df = pd.concat(electric_based_df)
 
+    # Add dummies 
+    # fuel_based_df = pd.get_dummies(fuel_based_df, columns=['type_of_transmission', 'type_of_fuel'], drop_first=True)
+    # electric_based_df = pd.get_dummies(electric_based_df, columns=['type_of_transmission'], drop_first=True)
+    
     # Save dataframes
     fuel_based_df.to_csv(Path(clean_data_path,"1995_2022_vehicle_fuel_consumption.csv"), index=False)
-    electric_based_df.to_csv(Path(clean_data_path,"electric_vehicle_information.csv"), index=False)
     
     # Extract StatsCan data
     for keys in stats_can_dict:
