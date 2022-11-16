@@ -1,13 +1,13 @@
 import scrapy
 
 class CarSalesSpider(scrapy.Spider):
-    name = "car-sales"
+    name = "car-sales2021"
 
-    start_urls = ['https://www.goodcarbadcar.net/2019-canada-vehicle-sales-figures-by-model/']
+    start_urls = ['https://www.goodcarbadcar.net/2021-canada-vehicle-sales-figures-by-model/']
     
     def parse(self, response):
         table = response.xpath('//*[@id="table_3"]/tbody')
-        rows = table.xpath('//tr[contains(@id,"table_3566")]')
+        rows = table.xpath('//tr[contains(@id,"table_6256")]')
 
         for row in rows:
             yield {

@@ -1,11 +1,13 @@
+# + tags=["parameters"]
+# declare a list tasks whose products you want to use as inputs
+upstream = None
+
+# -
+
 import pandas as pd
 import requests
-import requests
-import seaborn as sns
-import numpy as np
 import sys
 from pathlib import Path
-import json
 import re
 from io import BytesIO
 from zipfile import ZipFile
@@ -15,6 +17,7 @@ global model_dict
 global transmission_dict
 global fuel_dict
 global stats_can_dict 
+global month_dic
 
 model_dict = {"4wd/4X4":"Four-wheel drive",
 	      "awd": "All-wheel drive",
@@ -41,7 +44,6 @@ fuel_dict = {"X": "regular gasoline",
 	     "E": "ethanol (E85)",
 	     "N": "natural gas",
 	     "B": "electricity"
-	
 }
 
 stats_can_dict = {"new_motor_vehicle_reg": "https://www150.statcan.gc.ca/n1/tbl/csv/20100024-eng.zip",
@@ -49,6 +51,21 @@ stats_can_dict = {"new_motor_vehicle_reg": "https://www150.statcan.gc.ca/n1/tbl/
                   "fuel_sold_motor_vehicles": "https://www150.statcan.gc.ca/n1/tbl/csv/23100066-eng.zip",
                   "vehicle_registrations_type_vehicle": "https://www150.statcan.gc.ca/n1/tbl/csv/23100067-eng.zip"
 }
+
+month_dic = {
+            'jan': "01",
+            'feb': "02",
+            'mar': "03",
+            'apr': "04",
+            'may': "05",
+            'jun': "06",
+            'jul': "07",
+            'aug': "08",
+            'sep': "09",
+            'oct': "10",
+            'nov': "11",
+            'dec': "12"
+            }
 
 
 def fuel_consumption_metadata_extraction() -> pd.DataFrame:
@@ -88,6 +105,7 @@ def fuel_consumption_metadata_extraction() -> pd.DataFrame:
         print ("OOps: Something Else",err)
 
 
+# +
 def extract_raw_data(url:str):
     """
     Extract raw data from a URL
@@ -115,6 +133,7 @@ def extract_raw_data(url:str):
     except requests.exceptions.RequestException as err:
         print("OOps: Something Else",err)
 
+# +
 def save_raw_data(folder_path: str, url_content: str) -> None:
     """
     This function saves the raw data obtained using extract_raw_data() into a CSV file
@@ -135,6 +154,7 @@ def save_raw_data(folder_path: str, url_content: str) -> None:
     csv_file.write(url_content.content)
     csv_file.close()
 
+# +
 def read_and_clean_csv_file(folder_path, csv_file_name) -> pd.DataFrame:
     """
     This function reads a csv file and performs data cleaning
@@ -202,7 +222,8 @@ def read_and_clean_csv_file(folder_path, csv_file_name) -> pd.DataFrame:
     final_df['transmission_type'] = final_df['transmission_type'].map(transmission_dict)
 
     return final_df
-    
+
+# +
 def convert_model_key_words(s, dictionary):
     """
     Add values from footnote
@@ -220,6 +241,9 @@ def convert_model_key_words(s, dictionary):
             group = dictionary[key]
             break
     return group
+
+
+# -
 
 def extract_stats_can_data(stats_can_url: str, folder_path:str, file_name : str) -> None:
     """
@@ -249,6 +273,52 @@ def extract_stats_can_data(stats_can_url: str, folder_path:str, file_name : str)
 
 
     stats_can_df.to_csv(Path(folder_path, file_name))
+
+
+def process_json_car_sales(json_filen_name, path) -> list():
+    """
+    This function processes the JSON file containing car sales data and returns a dataframe
+    Parameters:
+        json_file_name (str): Name of JSON file
+        path (str): Path to folder where JSON file is located
+    Returns:
+        df_expanded_long (pd.DataFrame): Dataframe containing car sales data in long format
+        df_expanded_wide (pd.DataFrame): Dataframe containing car sales data in wide format
+
+    """
+    json_df = pd.read_json(Path(path,json_filen_name)).set_index("model")
+    json_df.dropna(how="all", inplace=True)
+    
+    # Wide format
+    wide_df = pd.read_json(Path(path,json_filen_name))
+    df_expanded_wide = wide_df.join(wide_df.reset_index()['model'].str.split(' ', 1, expand=True).rename(columns={0:'make', 1:'model_'})).drop(columns=["model"])
+    df_expanded_wide['year'] = json_filen_name.split("_")[0]
+
+    # long format
+    long_format_df = pd.DataFrame(json_df.T.unstack()).reset_index().rename(columns={"level_1":"month",0:"number_units_sold"})
+    df_expanded_long = long_format_df.join(long_format_df.reset_index()['model'].str.split(' ', 1, expand=True).rename(columns={0:'make', 1:'model_'})).drop(columns=["model"])
+    df_expanded_long['year'] = json_filen_name.split("_")[0]
+    df_expanded_long['month']  = df_expanded_long['month'].map(month_dic) 
+
+    # Remove ',' from number_units_sold
+    df_expanded_long['number_units_sold'] = df_expanded_long['number_units_sold'].str.replace(",","")
+
+    # Transform month and number_units_sold to int 
+    df_expanded_long['month'] = df_expanded_long['month'].astype('int')
+    df_expanded_long['number_units_sold'] = df_expanded_long['number_units_sold'].astype('int')
+
+    # Combine 'month' and 'year' into 'date' column and convert to datetime in format YYYY-MM 
+    df_expanded_long['date'] = df_expanded_long['year'].astype(str) + "-" + df_expanded_long['month'].astype(str)
+    # Convert 'date' to datetime
+    df_expanded_long['date'] = pd.to_datetime(df_expanded_long['date'], format='%Y-%m')
+    # Drop 'month' and 'year' columns
+    df_expanded_long.drop(columns=['month','year'], inplace=True)
+
+    return df_expanded_long, df_expanded_wide
+
+# +
+
+# -
 
 
 if __name__=='__main__':
@@ -301,4 +371,15 @@ if __name__=='__main__':
     for keys in stats_can_dict:
         extract_stats_can_data(stats_can_dict[keys], clean_data_path, f'{keys}.csv')
 
-        
+    # Extract car sales data
+    long_format_2021_sep,df_2021 =  process_json_car_sales("2021_canada_vehicle_sales.json", raw_data_path)
+    long_format_2020_sep,df_2020 =  process_json_car_sales("2020_canada_vehicle_sales.json", raw_data_path)
+    long_format_2019_sep,df_2019 =  process_json_car_sales("2019_canada_vehicle_sales.json", raw_data_path)
+
+    # Concatenate car sales data 
+    long_format_car_sales = pd.concat([long_format_2019_sep, long_format_2020_sep, long_format_2021_sep])
+    wide_format_car_sales = pd.concat([df_2019, df_2020, df_2021])
+
+    # Save car sales data
+    long_format_car_sales.to_csv(Path(clean_data_path,"long_format_car_sales.csv"), index=False)
+    wide_format_car_sales.to_csv(Path(clean_data_path,"wide_format_car_sales.csv"), index=False)

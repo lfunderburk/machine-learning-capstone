@@ -1,0 +1,12 @@
+tasks:
+  - source: scripts/data_extraction.py
+    product:
+      nb: notebooks/ploomber-output/data_extraction.ipynb
+      data: data/clean-data/1995_2022_vehicle_fuel_consumption.csv
+      data: data/clean-data/Battery-electric_vehicles_2012-2022_(2022-05-16).csv
+      data: data/clean-data/fuel_sold_motor_vehicles.csv
+      data: data/clean-data/long_format_car_sales.csv
+      data: data/clean-data/near_zero_vehicle_registrations.csv
+      data: data/clean-data/Plug-in_hybrid_electric_vehicles_2012-2022_(2022-03-28).csv
+      data: data/clean-data/vehicle_registrations_type_vehicle.csv
+      data: data/clean-data/wide_format_car_sales.csv

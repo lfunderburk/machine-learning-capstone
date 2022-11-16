@@ -28,12 +28,7 @@ You can use the environment on a Jupyter notebook via the command
 python -m ipykernel install --user --name ml-project-env --display-name "Python MP Capstone"
 ```
 
-Then open jupyter via
-
-```
-jupyter lab
-```
-## Download data
+## Using the data pipeline
 
 This script uses Scrapy to scrape data from a website. Sample execution for this page
 
@@ -42,7 +37,14 @@ https://www.goodcarbadcar.net/2019-canada-vehicle-sales-figures-by-model/#monthl
 ```
 cd scripts/scrape_car_sales/scrape_car_sales/
 
-scrapy crawl car-sales -o 2019_canada_vehicle_sales.json
+scrapy crawl car-sales2019 -o "file:///file:///path_to_repo\machine-learning-capstone/data/raw-data/2019_canada_vehicle_sales.json" -t json
+scrapy crawl car-sales2020 -o "file:///file:///path_to_repo\machine-learning-capstone/data/raw-data/2020_canada_vehicle_sales.json" -t json
+scrapy crawl car-sales2021 -o "file:///path_to_repo\machine-learning-capstone/data/raw-data/2021_canada_vehicle_sales.json" -t json
 ```
 
+Then from the root directory, i.e. from machine-learning-capstone\
+
+```
+ploomber build
+```
 
