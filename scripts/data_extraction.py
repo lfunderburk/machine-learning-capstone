@@ -154,11 +154,14 @@ def save_raw_data(folder_path: str, url_content: str) -> None:
     csv_file.write(url_content.content)
     csv_file.close()
 
-# +
-def read_and_clean_csv_file(folder_path, csv_file_name) -> pd.DataFrame:
+def rename_fuel_data_columns(folder_path, csv_file_name)-> pd.DataFrame:
     """
-    This function reads a csv file and performs data cleaning
-    
+    This function reads a csv and changes its column names
+    to lowecase, removes spaces and replaces them with underscores
+    and removes the pound sign from the column names
+
+    This function assumes the original csv file has two headers!!!
+
     Parameters
     ----------
     folder_path : str
@@ -168,13 +171,12 @@ def read_and_clean_csv_file(folder_path, csv_file_name) -> pd.DataFrame:
 
     Returns
     -------
-    final_df : pd.DataFrame
-        Dataframe containing the cleaned data
-
+        final_df : pd.DataFrame
     """
+
     # Read CSV file
     df = pd.read_csv(Path(folder_path,csv_file_name), sep=",", low_memory=False, encoding='cp1252')
-    
+
     # Data cleaning
     sample_df_col = df.dropna(thresh=1 ,axis=1).dropna(thresh=1 ,axis=0)
     sample_df_col.columns = [item.lower() for item in sample_df_col.columns]
@@ -197,6 +199,29 @@ def read_and_clean_csv_file(folder_path, csv_file_name) -> pd.DataFrame:
     # Reset column names
     final_df = sample_df_no_footer.iloc[1:, ].copy()
     final_df.columns = new_cols
+
+    return final_df
+
+# +
+def read_and_clean_csv_file(folder_path, csv_file_name) -> pd.DataFrame:
+    """
+    This function reads a csv file and performs data cleaning
+    
+    Parameters
+    ----------
+    folder_path : str
+        Path to the folder where the data is saved
+    csv_file_name : str
+        Name of the csv file to be read
+
+    Returns
+    -------
+    final_df : pd.DataFrame
+        Dataframe containing the cleaned data
+
+    """
+    
+    final_df = rename_fuel_data_columns(folder_path, csv_file_name)
 
     # Additional data cleaning
     final_df.drop_duplicates(keep='first', inplace=True)
