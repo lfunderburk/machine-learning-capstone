@@ -156,3 +156,7 @@ win-inet-pton==1.1.0
 wincertstore==0.2
 zipp==3.8.0
 zope.interface==5.5.0
+ploomber==0.21.7
+ploomber-core==0.0.6
+ploomber-engine==0.0.10
+ploomber-scaffold==0.3.1

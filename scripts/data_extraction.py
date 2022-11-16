@@ -6,7 +6,7 @@ upstream = None
 
 import pandas as pd
 import requests
-import sys
+import sys, os
 from pathlib import Path
 import re
 from io import BytesIO
@@ -322,10 +322,16 @@ def process_json_car_sales(json_filen_name, path) -> list():
 
 
 if __name__=='__main__':
-    # Variable initialization
-    raw_data_path = Path("C:/Users/Laura GF/Documents/GitHub/machine-learning-capstone/data/raw-data/")
+    # Set up relative paths
+    sys.path.append(os.path.abspath(os.path.join('..','./data/', './raw-data/')))
+    sys.path.append(os.path.abspath(os.path.join('..','./data/', './clean-data/')))
+    paths = sys.path
+    raw_path = [item for item in paths if "machine-learning-capstone\\data\\raw-data" in item]
+    clean_path = [item for item in paths if "machine-learning-capstone\\data\\clean-data" in item]
     
-    clean_data_path = Path("C:/Users/Laura GF/Documents/GitHub/machine-learning-capstone/data/clean-data/")
+    # Variable initialization
+    raw_data_path = Path(raw_path[0])
+    clean_data_path = Path(clean_path[0])
     
     # Master dataframe initialization
     fuel_based_df = []
@@ -359,11 +365,7 @@ if __name__=='__main__':
 
     # Concatenate all dataframes
     fuel_based_df = pd.concat(fuel_based_df)
-
-    # Add dummies 
-    # fuel_based_df = pd.get_dummies(fuel_based_df, columns=['type_of_transmission', 'type_of_fuel'], drop_first=True)
-    # electric_based_df = pd.get_dummies(electric_based_df, columns=['type_of_transmission'], drop_first=True)
-    
+ 
     # Save dataframes
     fuel_based_df.to_csv(Path(clean_data_path,"1995_2022_vehicle_fuel_consumption.csv"), index=False)
     

@@ -48,3 +48,13 @@ Then from the root directory, i.e. from machine-learning-capstone\
 ploomber build
 ```
 
+If everything goes well, you should see
+
+```
+Loading pipeline...
+Executing: 100%|████████████████████████████████████| 18/18 [00:15<00:00,  1.14cell/s]
+Building task 'data_extraction': 100%|██████████████████| 1/1 [00:15<00:00, 15.84s/it]
+name             Ran?      Elapsed (s)    Percentage
+---------------  ------  -------------  ------------
+data_extraction  True          15.8406           100
+```
