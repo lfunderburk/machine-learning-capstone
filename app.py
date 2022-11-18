@@ -84,12 +84,27 @@ header_menu_style = {'textAlign' : 'left','color':"white"}
 text_card = dbc.Card(
     dbc.CardBody(
         [
-            html.H3("Vehicle fuel consumption dashboard", className="card-title",style=header_style),
-            html.H6("Fuel-only, hybrid and electric vehicles", className="card-subtitle", style=header_style),
+            html.H2("Vehicle fuel consumption dashboard", className="card-title",style=header_style),
+            html.H5("Fuel-only, hybrid and electric vehicles", className="card-subtitle", style=header_style),
+            
+        ]
+    ),style={'backgroundColor': colors['background']}
+)
+
+footer_card = dbc.Card(
+    dbc.CardBody(
+        [
             html.P(
-                "This dashboard's goal is to uncover trends in fuel consumption for various vehicles \
-                whose fuel consumption ratings and CO2 emissions were established through 5-cycle fuel consumption testing.",
-                className="card-text",style=header_style,
+               "To help consumers in Canada find fuel-efficient vehicles, the Government of Canada released a fuel consumption ratings search tool.\
+                In it, they provide users the ability to search vehicles by model, class and make and obtain information on the fuel consumption of \
+                various vehicles in three settings: city, highway and combined. Vehicles undergo a 5-cycle fuel consumption testing in each of these \
+                settings, where the vehicle's CO2 emissions are estimated. Additionally, they provide\
+                access through their open data portal as part of the Open Government License Canada. ", className="card-text",style=header_menu_style,),
+            html.P(
+                "Whereas this tool allows consumers to obtain information via the website, it would be great if it could also show data insights on \
+               scores from different manufactures, as well as trends for which vehicles in Canada and US are more popular and in turn what this means \
+                for fuel emissions and air quality. This dashboard's goal is to provide insights into different vehicle's fuel consumption under the 5-cycle\
+                    testing, provide insights into consumer trends in Canada, and forecast CO2 emissions from vehicles.", className="card-text",style=header_menu_style,
             ),
             dbc.CardLink(
                 "Learn about fuel consumption testing", 
@@ -99,9 +114,8 @@ text_card = dbc.Card(
             dbc.CardLink("Data source",
                 href="https://open.canada.ca/data/en/dataset/98f1a129-f628-4ce4-b24d-6f16bf24dd64"
                 )
-            
         ]
-    ),style={'backgroundColor': '#111111'}
+    ),style={'backgroundColor': colors['background']}
 )
 
 menu_card = dbc.Card(
@@ -155,7 +169,6 @@ plots_card = dbc.Card(
 cards = dbc.Container([ 
     dbc.Row(
     [   
-        dbc.Col(text_card, width='auto'),
         dbc.Col(menu_card, width='auto'),
         dbc.Col(plots_card, width='auto'),
     ]
@@ -163,12 +176,42 @@ cards = dbc.Container([
 ], fluid=True,style={'backgroundColor': "black"})
 
 
-
-
-app.layout = html.Div(
-    children=[cards],
-    style={'backgroundColor': "black"}
-)
+app.layout = html.Div([
+    dbc.Col(text_card, width='auto'),
+    dcc.Tabs([
+        dcc.Tab(label='Vehicle insights', children=[
+            html.Div(
+                children=[cards],
+                style={'backgroundColor': "black"}
+            )
+        ]),
+        dcc.Tab(label='Tab two', children=[
+            dcc.Graph(
+                figure={
+                    'data': [
+                        {'x': [1, 2, 3], 'y': [1, 4, 1],
+                            'type': 'bar', 'name': 'SF'},
+                        {'x': [1, 2, 3], 'y': [1, 2, 3],
+                         'type': 'bar', 'name': u'Montréal'},
+                    ]
+                }
+            )
+        ]),
+        dcc.Tab(label='Tab three', children=[
+            dcc.Graph(
+                figure={
+                    'data': [
+                        {'x': [1, 2, 3], 'y': [2, 4, 3],
+                            'type': 'bar', 'name': 'SF'},
+                        {'x': [1, 2, 3], 'y': [5, 4, 3],
+                         'type': 'bar', 'name': u'Montréal'},
+                    ]
+                }
+            )
+        ]),
+    ]),
+    dbc.Col(footer_card, width='auto')
+])
 
 
 @app.callback(
