@@ -227,7 +227,7 @@ def read_and_clean_csv_file(folder_path, csv_file_name) -> pd.DataFrame:
     final_df.drop_duplicates(keep='first', inplace=True)
 
     # Turn make, model.1_, vehicleclass_ into lowercase
-    final_df['make_'] = final_df['make_'].str.lower()
+    final_df['make_'] = final_df['make_'].str.lower().str.strip()
     final_df['model.1_'] = final_df['model.1_'].str.lower()
     final_df['vehicleclass_'] = final_df['vehicleclass_'].str.lower()
 
@@ -368,6 +368,8 @@ if __name__=='__main__':
     for item in data_entries_english.iterrows():
         name, url = item[1]["name"], item[1]["url"]
         
+        if "Original" in name:
+            continue
         # Form file name
         file_name = f'{name.replace(" ","_")}.csv'
 

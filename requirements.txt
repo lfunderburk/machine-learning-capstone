@@ -160,3 +160,10 @@ ploomber==0.21.7
 ploomber-core==0.0.6
 ploomber-engine==0.0.10
 ploomber-scaffold==0.3.1
+dash==2.7.0
+Flask==2.2.2 
+Werkzeug==2.2.2 
+dash-core-components==2.0.0 
+dash-html-components==2.0.0 
+dash-table==5.0.0 
+itsdangerous==2.1.2
