@@ -4,6 +4,7 @@ import plotly.express as px
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
+import dash_bootstrap_components as dbc
 
 def generate_count_plot(attribute, vehicle_type, dataframe):
     """
@@ -50,7 +51,7 @@ dataframe_dictionary = {"electric": electric_df,
                        "hybrid": hybrid_df,
                        "fuel-only": master_df}
 
-
+all_makes = list(set(master_df['make_'].unique()).union(set(electric_df['make_'].unique())).union(set(hybrid_df['make_'].unique())))
 
 # App section        
         
@@ -59,29 +60,61 @@ dataframe_dictionary = {"electric": electric_df,
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 
+
 # Intialize app
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets, title="Fuel consumption of vehicles dashboard")
 server = app.server
 
 colors = {
-    'background': '#111111',
-    'text': '#7FDBFF'
+    'background': '#003f5c',
+    'text': 'white'
 }
 
 card_text_style = {
-    'textAlign' : 'center',
+    'textAlign' : 'left',
     'color' : 'black',
     'backgroundColor': colors['background']
 }
 
+header_style = {'textAlign' : 'center','color':"white"}
+
+header_menu_style = {'textAlign' : 'left','color':"white"}
+
 # ----------------------------------------------------------------------------------#
-app.layout = html.Div(style=card_text_style, children=[
-             # This div contains a header H1, a dropdown to select the kind of plot and the plot
-            html.H1("Summary statistics - all makes and models", style={"color":"white"}),
+text_card = dbc.Card(
+    dbc.CardBody(
+        [
+            html.H3("Vehicle fuel consumption dashboard", className="card-title",style=header_style),
+            html.H6("Fuel-only, hybrid and electric vehicles", className="card-subtitle", style=header_style),
+            html.P(
+                "This dashboard's goal is to uncover trends in fuel consumption for various vehicles \
+                whose fuel consumption ratings and CO2 emissions were established through 5-cycle fuel consumption testing.",
+                className="card-text",style=header_style,
+            ),
+            dbc.CardLink(
+                "Learn about fuel consumption testing", 
+            href="https://www.nrcan.gc.ca/energy-efficiency/transportation-alternative-fuels/fuel-consumption-guide/understanding-fuel-consumption-ratings/fuel-consumption-testing/21008",
+            style={'textAlign' : 'center'}),
+            html.P(""),
+            dbc.CardLink("Data source",
+                href="https://open.canada.ca/data/en/dataset/98f1a129-f628-4ce4-b24d-6f16bf24dd64"
+                )
             
-            html.Div([
+        ]
+    ),style={'backgroundColor': '#111111'}
+)
+
+menu_card = dbc.Card(
+    dbc.CardBody(
+        [
+           html.Div([
+                html.Div(
+                        html.H4("Summary statistics - all makes and models", style=header_menu_style),
+                        className="four columns"
+                ),
+
                 html.Div([
-                    html.H6("Select attribute", style={"color":"white"}),
+                    html.P("Select attribute", style=header_menu_style),
                     dcc.Dropdown(
                         id='attribute',
                         options=[{'label': 'Vehicle make', 'value': 'make_'},
@@ -93,36 +126,50 @@ app.layout = html.Div(style=card_text_style, children=[
                         value= 'make_',
                         style={'backgroundColor':"white"}),
                 ], className="four columns"),
-
             ], className="row"),
+        ]
+    ), style={'backgroundColor': colors['background']}
+)
+
+plots_card = dbc.Card(
+    dbc.CardBody(
+        [ 
             html.Div([
                     html.Div([
                             dcc.Graph(id='graph-dist_fuel')
                         ], className="four columns"),
                     html.Div([
-                        dcc.Graph(id='graph-dist_electric')
+                            dcc.Graph(id='graph-dist_electric')
                     ], className="four columns"),
 
                     html.Div([
-                        dcc.Graph(id='graph-dist_hybrid')
+                            dcc.Graph(id='graph-dist_hybrid')
                     ], className="four columns"),
                 ], className="row"),
-            
-            html.H1("Summary statistics - by make and models", style={"color":"white"}),
-            html.Div([
-                html.Div([
-                    html.H6("Select type of vehicle", style={"color":"white"}),
-                    dcc.Dropdown(
-                        id='vehicle-type',
-                        options=[{'label': 'Electric vehicle', 'value': 'electric'},
-                                {'label': 'Hybrid vehicle', 'value': 'hybrid'},
-                                {'label': 'Fuel-only vehicle', 'value': 'fuel-only'}],
-                        value= 'fuel-only'),
-                ], className="four columns")
-            ], className="row")
+        ]
+    ), style={'backgroundColor': colors['background']}
+)
 
-        
-])
+
+
+cards = dbc.Container([ 
+    dbc.Row(
+    [   
+        dbc.Col(text_card, width='auto'),
+        dbc.Col(menu_card, width='auto'),
+        dbc.Col(plots_card, width='auto'),
+    ]
+)
+], fluid=True,style={'backgroundColor': "black"})
+
+
+
+
+app.layout = html.Div(
+    children=[cards],
+    style={'backgroundColor': "black"}
+)
+
 
 @app.callback(
     Output('graph-dist_electric', 'figure'),

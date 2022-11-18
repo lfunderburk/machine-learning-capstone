@@ -167,3 +167,4 @@ dash-core-components==2.0.0
 dash-html-components==2.0.0 
 dash-table==5.0.0 
 itsdangerous==2.1.2
+dash-bootstrap-components==1.2.1
