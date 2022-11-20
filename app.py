@@ -6,6 +6,68 @@ from dash import dcc, html
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
 
+def generate_bar_chart_with_models(dataframe):
+
+    model_average_co2 = dataframe.groupby(["model.1_",'model_year'])['co2emissions_(g/km)'].mean().reset_index().sort_values(by='co2emissions_(g/km)', \
+                                                                                           ascending=False).rename(columns={"co2emissions_(g/km)":"Average CO2 emissions",
+                                                                                                                           "model.1_":"Model name",
+                                                                                                                               'model_year': "Model year"})
+    model_average_co2['Model year'] = model_average_co2['Model year'].astype(str)
+    year_min = model_average_co2['Model year'].min() 
+    year_max = model_average_co2['Model year'].max() 
+    make = dataframe['make_'].unique()[0]
+    fig = px.bar(data_frame=model_average_co2, 
+                x='Model name', 
+                y='Average CO2 emissions',
+                color_discrete_sequence= px.colors.sequential.matter,
+                color='Model year',
+                title=f"Average CO2 emissions ({year_min} - {year_max}) by model")
+
+    fig.update_layout(
+            plot_bgcolor=colors['background'],
+            paper_bgcolor=colors['background'],
+            font_color=colors['text']
+        )
+    fig.update_layout(barmode='stack', xaxis={'categoryorder': 'total descending'})
+
+    return fig
+
+def generate_scatter_or_box(dataframe, y_var):
+    
+    if dataframe[y_var].dtype=='float64' or dataframe[y_var].dtype=='int64':
+        if "fuelconsumption" in y_var:
+            type_ = y_var.split("_")[-1]
+            label = "Fuel consumption " + type_ 
+        else:
+            label = y_var.replace("_"," ").capitalize()
+        fig = px.scatter(data_frame=dataframe, 
+               y=y_var,
+               x='co2emissions_(g/km)', 
+               color=y_var,
+               color_discrete_sequence= px.colors.sequential.matter,
+               hover_name="model.1_", hover_data=["model_year", "make_"],
+             labels={y_var: label, 'co2emissions_(g/km)': "CO2 emissions (g/km)"},
+             title= f"Relationship between CO2 emissions and {label}")
+    else:
+        label = y_var.replace("_"," ").capitalize()
+        fig = px.box(data_frame=dataframe, 
+               y=y_var,
+               x='co2emissions_(g/km)', 
+               color=y_var,
+               color_discrete_sequence= px.colors.sequential.matter,
+               hover_name="make_", hover_data=["model_year", "model.1_"],
+             labels={y_var: label, 'co2emissions_(g/km)': "CO2 emissions (g/km)"},
+             title= f"Relationship between CO2 emissions and {label}")
+    fig.update_layout(
+            plot_bgcolor=colors['background'],
+            paper_bgcolor=colors['background'],
+            font_color=colors['text']
+        )
+
+    fig.update_yaxes(showgrid=False)
+        
+    return fig
+
 def generate_count_plot(attribute, vehicle_type, dataframe):
     """
     This function generates a histogram of an attribute for 
@@ -19,7 +81,8 @@ def generate_count_plot(attribute, vehicle_type, dataframe):
         rename_attr = attribute.replace("_"," ").capitalize()
         fig = px.histogram(data_frame=dataframe,
                         x=attribute, labels={attribute:rename_attr},
-                        title=f"Frequency of {rename_attr} ({year_min} - {year_max}), {vehicle_type} vehicle")
+                        color_discrete_sequence= px.colors.sequential.matter,
+                        title=f"Frequency of {rename_attr} ({year_min} - {year_max}), {vehicle_type}")
         fig.update_layout(barmode='stack', xaxis={'categoryorder': 'total descending'})
         fig.update_layout(
             plot_bgcolor=colors['background'],
@@ -51,7 +114,10 @@ dataframe_dictionary = {"electric": electric_df,
                        "hybrid": hybrid_df,
                        "fuel-only": master_df}
 
-all_makes = list(set(master_df['make_'].unique()).union(set(electric_df['make_'].unique())).union(set(hybrid_df['make_'].unique())))
+all_makes = master_df['make_'].unique()
+
+year_min = master_df['model_year'].min() 
+year_max = master_df['model_year'].max() 
 
 # App section        
         
@@ -78,7 +144,7 @@ card_text_style = {
 
 header_style = {'textAlign' : 'center','color':"white"}
 
-header_menu_style = {'textAlign' : 'left','color':"white"}
+header_menu_style = {'textAlign' : 'left','color':"white","maxWidth": "80em", "fontSize":"16px"}
 
 # ----------------------------------------------------------------------------------#
 text_card = dbc.Card(
@@ -122,49 +188,79 @@ menu_card = dbc.Card(
     dbc.CardBody(
         [
            html.Div([
-                html.Div(
-                        html.H4("Summary statistics - all makes and models", style=header_menu_style),
-                        className="four columns"
-                ),
+                
 
                 html.Div([
                     html.P("Select attribute", style=header_menu_style),
                     dcc.Dropdown(
                         id='attribute',
-                        options=[{'label': 'Vehicle make', 'value': 'make_'},
+                        options=[
                                 {'label': 'Vehicle class', 'value': 'vehicleclass_'},
                                 {'label': 'Transmission', 'value': 'transmission_'},
+                                {'label': 'Make', 'value': 'make_'},
                                 {'label': 'Transmission type', 'value': 'transmission_type'},
                                 {'label': 'Number of gears', 'value': 'number_of_gears'},
-                                {'label':"CO2 Emissions", 'value': 'co2emissions_(g/km)'} ],
-                        value= 'make_',
+                                {'label':"CO2 Emissions", 'value': 'co2emissions_(g/km)'},
+                                {'label':"Engine size", "value":"enginesize_(l)"},
+                                 {'label':"Number of cylinders", "value":"cylinders_"},
+                                 {'label':"Fuel type", "value":"mapped_fuel_type"},
+                                 {"label": "Fuel consumption in city (l/100km)", "value": "fuelconsumption_city(l/100km)"},
+                                 {"label": "Fuel consumption in highway (l/km)", "value": "fuelconsumption_hwy(l/100km)"},
+                                 {"label": "Fuel consumption combined (l/km)", "value": "fuelconsumption_comb(l/100km)"},
+                                 {"label": "Fuel consumption combined (mpg)", "value": "fuelconsumption_comb(mpg)"}],
+                        value= 'vehicleclass_',
                         style={'backgroundColor':"white"}),
                 ], className="four columns"),
+                html.Div([
+                    html.P("Type or select a make", style=header_menu_style),
+                    dcc.Dropdown(
+                        id='select-make',
+                        options=all_makes,
+                        value= 'acura',
+                        style={'backgroundColor':"white"}),
+                ],  className="two columns"),
+
+                html.Div([
+                    html.P("Select a start year", style=header_menu_style),
+                    dcc.Dropdown(
+                        id='start-year',
+                        options=[i + 1 for i in range(year_min-1, year_max)],
+                        value= 2021,
+                        style={'backgroundColor':"white"}),
+                ],  className="two columns"),
+                html.Div([
+                    html.P("Select an end year", style=header_menu_style),
+                    dcc.Dropdown(
+                        id='end-year',
+                        options=[i + 1 for i in range(year_min-1, year_max)],
+                        value= 2022,
+                        style={'backgroundColor':"white"}),
+                ],  className="two columns")
             ], className="row"),
+
         ]
     ), style={'backgroundColor': colors['background']}
 )
 
 plots_card = dbc.Card(
-    dbc.CardBody(
-        [ 
-            html.Div([
+
+    dbc.CardBody([ 
+        html.Div([
                     html.Div([
                             dcc.Graph(id='graph-dist_fuel')
                         ], className="four columns"),
-                    html.Div([
-                            dcc.Graph(id='graph-dist_electric')
-                    ], className="four columns"),
 
                     html.Div([
-                            dcc.Graph(id='graph-dist_hybrid')
-                    ], className="four columns"),
+                            dcc.Graph(id='graph-scatter-box')
+                        ], className="four columns"),
+
+                    html.Div([
+                            dcc.Graph(id='graph-models-released')
+                        ], className="four columns"),
+                    
                 ], className="row"),
-        ]
-    ), style={'backgroundColor': colors['background']}
+    ]), style={'backgroundColor': colors['background']}
 )
-
-
 
 cards = dbc.Container([ 
     dbc.Row(
@@ -179,13 +275,13 @@ cards = dbc.Container([
 app.layout = html.Div([
     dbc.Col(text_card, width='auto'),
     dcc.Tabs([
-        dcc.Tab(label='Vehicle insights', children=[
+        dcc.Tab(label='Fuel-only vehicle insights', children=[
             html.Div(
                 children=[cards],
                 style={'backgroundColor': "black"}
             )
         ]),
-        dcc.Tab(label='Tab two', children=[
+        dcc.Tab(label='Hybrid vehicle insights', children=[
             dcc.Graph(
                 figure={
                     'data': [
@@ -197,7 +293,7 @@ app.layout = html.Div([
                 }
             )
         ]),
-        dcc.Tab(label='Tab three', children=[
+        dcc.Tab(label='Electric vehicle insights', children=[
             dcc.Graph(
                 figure={
                     'data': [
@@ -215,30 +311,48 @@ app.layout = html.Div([
 
 
 @app.callback(
-    Output('graph-dist_electric', 'figure'),
-    [Input('attribute', 'value')])
-def update_frequency_chart(attribute):
-    vehicle_type = "electric"
-    dataframe = dataframe_dictionary[vehicle_type]
-    fig0 = generate_count_plot(attribute, vehicle_type, dataframe)
-    return fig0
-
-@app.callback(
-    Output('graph-dist_hybrid', 'figure'),
-    [Input('attribute', 'value')])
-def update_frequency_chart(attribute):
-    vehicle_type = "hybrid"
-    dataframe = dataframe_dictionary[vehicle_type]
-    fig0 = generate_count_plot(attribute, vehicle_type, dataframe)
-    return fig0
-
-@app.callback(
     Output('graph-dist_fuel', 'figure'),
-    [Input('attribute', 'value')])
-def update_frequency_chart(attribute):
+    [Input('attribute', 'value'),
+    Input('select-make', 'value'),
+    Input('start-year', 'value'),
+    Input('end-year', 'value')])
+def update_frequency_chart(attribute, make, start_year, end_year):
     vehicle_type = "fuel-only"
-    dataframe = dataframe_dictionary[vehicle_type]
+    sel_dataframe = dataframe_dictionary[vehicle_type]
+    dataframe = sel_dataframe[(sel_dataframe['make_']==make) & 
+                              (sel_dataframe['model_year']>=start_year) &
+                               (sel_dataframe['model_year']<=end_year)  ]
     fig0 = generate_count_plot(attribute, vehicle_type, dataframe)
+    return fig0
+
+@app.callback(
+    Output('graph-scatter-box', 'figure'),
+    [Input('attribute', 'value'),
+    Input('select-make', 'value'),
+    Input('start-year', 'value'),
+    Input('end-year', 'value')])
+def update_frequency_chart(attribute, make, start_year, end_year):
+    vehicle_type = "fuel-only"
+    sel_dataframe = dataframe_dictionary[vehicle_type]
+    dataframe = sel_dataframe[(sel_dataframe['make_']==make) & 
+                              (sel_dataframe['model_year']>=start_year) &
+                               (sel_dataframe['model_year']<=end_year)  ]
+    fig0 = generate_scatter_or_box( dataframe, attribute)
+    return fig0
+
+@app.callback(
+    Output('graph-models-released', 'figure'),
+    [
+    Input('select-make', 'value'),
+    Input('start-year', 'value'),
+    Input('end-year', 'value')])
+def update_frequency_chart(make, start_year, end_year):
+    vehicle_type = "fuel-only"
+    sel_dataframe = dataframe_dictionary[vehicle_type]
+    dataframe = sel_dataframe[(sel_dataframe['make_']==make) & 
+                              (sel_dataframe['model_year']>=start_year) &
+                               (sel_dataframe['model_year']<=end_year)  ]
+    fig0 = generate_bar_chart_with_models(dataframe)
     return fig0
 
 if __name__ == '__main__':  

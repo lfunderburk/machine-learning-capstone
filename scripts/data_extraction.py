@@ -46,6 +46,13 @@ fuel_dict = {"X": "regular gasoline",
 	     "B": "electricity"
 }
 
+hybrid_fuel_dict = {"B/X": "electricity & regular gasoline",
+	     'B/Z': "electricity & premium gasoline",
+ 	     "B/Z*": "electricity & premium gasoline",
+	     "B/X*": "electricity & regular gasoline",
+	     "B": "electricity"
+}
+
 stats_can_dict = {"new_motor_vehicle_reg": "https://www150.statcan.gc.ca/n1/tbl/csv/20100024-eng.zip",
                   "near_zero_vehicle_registrations": "https://www150.statcan.gc.ca/n1/tbl/csv/20100025-eng.zip",
                   "fuel_sold_motor_vehicles": "https://www150.statcan.gc.ca/n1/tbl/csv/23100066-eng.zip",
@@ -383,7 +390,12 @@ if __name__=='__main__':
         final_df = read_and_clean_csv_file(raw_data_path, name.replace(" ","_")+".csv")
 
         # Populate dataframe with information from the footnotes
-        if "electric" in name:
+        if "hybrid" in name:
+            final_df['mapped_fuel_type'] = final_df['fuel.1_type2'].map(fuel_dict)
+            final_df['hybrid_fuels'] = final_df['fuel_type1'].map(hybrid_fuel_dict)
+            final_df.to_csv(Path(clean_data_path,file_name), index=False)
+        elif "electric" in name and "hybrid" not in name: 
+            final_df['mapped_fuel_type'] = final_df['fuel_type'].map(fuel_dict)
             final_df.to_csv(Path(clean_data_path,file_name), index=False)
         else:
             final_df['mapped_fuel_type'] = final_df['fuel_type'].map(fuel_dict)
