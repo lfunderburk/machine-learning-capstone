@@ -8,20 +8,24 @@ import dash_bootstrap_components as dbc
 
 def generate_bar_chart_with_models(dataframe):
 
-    model_average_co2 = dataframe.groupby(["model.1_",'model_year'])['co2emissions_(g/km)'].mean().reset_index().sort_values(by='co2emissions_(g/km)', \
+    model_average_co2 = dataframe.groupby(["model.1_",'model_year',"co2_rating"])['co2emissions_(g/km)'].mean().reset_index().sort_values(by='co2emissions_(g/km)', \
                                                                                            ascending=False).rename(columns={"co2emissions_(g/km)":"Average CO2 emissions",
                                                                                                                            "model.1_":"Model name",
-                                                                                                                               'model_year': "Model year"})
+                                                                                                                               'model_year': "Model year",
+                                                                                                                               "co2_rating": "CO2 rating"})
     model_average_co2['Model year'] = model_average_co2['Model year'].astype(str)
     year_min = model_average_co2['Model year'].min() 
     year_max = model_average_co2['Model year'].max() 
-    make = dataframe['make_'].unique()[0]
-    fig = px.bar(data_frame=model_average_co2, 
-                x='Model name', 
-                y='Average CO2 emissions',
+    model_average_co2 = model_average_co2.sort_values(
+                        by="Model year", 
+                        ascending=False)
+
+    fig = px.histogram(data_frame=model_average_co2, 
+                #x='Model name', 
+                x='CO2 rating',
                 color_discrete_sequence= px.colors.sequential.matter,
                 color='Model year',
-                title=f"Average CO2 emissions ({year_min} - {year_max}) by model")
+                title=f"Distribution of CO2 rating({year_min} - {year_max}) by make")
 
     fig.update_layout(
             plot_bgcolor=colors['background'],
@@ -75,13 +79,18 @@ def generate_count_plot(attribute, vehicle_type, dataframe):
     """
 
     try:
+        dataframe = dataframe.sort_values(
+                        by="model_year", 
+                        ascending=False)
+
         
         year_min = dataframe['model_year'].min() 
         year_max = dataframe['model_year'].max() 
         rename_attr = attribute.replace("_"," ").capitalize()
         fig = px.histogram(data_frame=dataframe,
                         x=attribute, labels={attribute:rename_attr},
-                        color_discrete_sequence= px.colors.sequential.matter,
+                        color_discrete_sequence= px.colors.sequential.matter_r,
+                        color='model_year',
                         title=f"Frequency of {rename_attr} ({year_min} - {year_max}), {vehicle_type}")
         fig.update_layout(barmode='stack', xaxis={'categoryorder': 'total descending'})
         fig.update_layout(
@@ -225,7 +234,7 @@ menu_card = dbc.Card(
                     dcc.Dropdown(
                         id='start-year',
                         options=[i + 1 for i in range(year_min-1, year_max)],
-                        value= 2021,
+                        value= 2000,
                         style={'backgroundColor':"white"}),
                 ],  className="two columns"),
                 html.Div([
@@ -306,7 +315,7 @@ app.layout = html.Div([
             )
         ]),
     ]),
-    dbc.Col(footer_card, width='auto')
+    #dbc.Col(footer_card, width='auto')
 ])
 
 
