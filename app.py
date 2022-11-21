@@ -5,6 +5,43 @@ import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
+import sys, os
+import plotly.graph_objects as go
+
+
+def display_table(dataframe, title_str):
+
+    df = dataframe[["model_year", "model.1_", "vehicleclass_", "co2emissions_(g/km)", "co2_rating"]]
+    df.rename(columns = {"model_year": "Year",
+                        "model.1_": "Model name",
+                        "vehicleclass_": "Class",
+                        "co2emissions_(g/km)": "CO2 Emissions (g/km)",
+                        "co2_rating":"Rating" }, inplace=True)
+    fig = go.Figure(data=[go.Table(
+        header=dict(values=list(df.columns),
+                    fill_color='rgb(47, 15 , 61)',
+                    align='center'),
+        cells=dict(values=[df["Year"],
+                        df["Model name"],
+                        df["Class"],
+                        df["CO2 Emissions (g/km)"],
+                        df["Rating"]],
+                                    fill_color='rgb(107, 24, 63)',
+                                    align='left'))
+    ])
+
+    fig.update_layout(
+            title=f"{title_str}.<br><sup>On a scale from 1 (worst) to 10 (best)</sup>",
+            font=dict(
+                color="white"
+            ),
+            title_x=0.5,
+            plot_bgcolor=colors['background'],
+            paper_bgcolor=colors['background'],
+            font_color='white'
+        )
+
+    return fig
 
 def generate_bar_chart_with_models(dataframe):
 
@@ -28,6 +65,7 @@ def generate_bar_chart_with_models(dataframe):
                 title=f"Distribution of CO2 rating({year_min} - {year_max}) by make")
 
     fig.update_layout(
+            title_x=0.5,
             plot_bgcolor=colors['background'],
             paper_bgcolor=colors['background'],
             font_color=colors['text']
@@ -63,6 +101,7 @@ def generate_scatter_or_box(dataframe, y_var):
              labels={y_var: label, 'co2emissions_(g/km)': "CO2 emissions (g/km)"},
              title= f"Relationship between CO2 emissions and {label}")
     fig.update_layout(
+            title_x=0.5,
             plot_bgcolor=colors['background'],
             paper_bgcolor=colors['background'],
             font_color=colors['text']
@@ -89,11 +128,12 @@ def generate_count_plot(attribute, vehicle_type, dataframe):
         rename_attr = attribute.replace("_"," ").capitalize()
         fig = px.histogram(data_frame=dataframe,
                         x=attribute, labels={attribute:rename_attr},
-                        color_discrete_sequence= px.colors.sequential.matter_r,
+                        color_discrete_sequence= px.colors.sequential.matter,
                         color='model_year',
                         title=f"Frequency of {rename_attr} ({year_min} - {year_max}), {vehicle_type}")
         fig.update_layout(barmode='stack', xaxis={'categoryorder': 'total descending'})
         fig.update_layout(
+            title_x=0.5,
             plot_bgcolor=colors['background'],
             paper_bgcolor=colors['background'],
             font_color=colors['text']
@@ -107,7 +147,10 @@ def generate_count_plot(attribute, vehicle_type, dataframe):
         print("Dimension is not valid. ")
         
 # Set data read path
-clean_data = "C:/Users/Laura GF/Documents/GitHub/machine-learning-capstone/data/clean-data/"
+sys.path.append(os.path.abspath(os.path.join('.','./data/', './clean-data/')))
+paths = sys.path
+clean_path = [item for item in paths if "machine-learning-capstone\\data\\clean-data" in item]
+clean_data = clean_path[0]
 
 # Assign variables 
 file_name_2022_1995 = "1995_2022_vehicle_fuel_consumption.csv"
@@ -197,8 +240,6 @@ menu_card = dbc.Card(
     dbc.CardBody(
         [
            html.Div([
-                
-
                 html.Div([
                     html.P("Select attribute", style=header_menu_style),
                     dcc.Dropdown(
@@ -225,7 +266,7 @@ menu_card = dbc.Card(
                     dcc.Dropdown(
                         id='select-make',
                         options=all_makes,
-                        value= 'acura',
+                        value= 'bmw',
                         style={'backgroundColor':"white"}),
                 ],  className="two columns"),
 
@@ -234,7 +275,7 @@ menu_card = dbc.Card(
                     dcc.Dropdown(
                         id='start-year',
                         options=[i + 1 for i in range(year_min-1, year_max)],
-                        value= 2000,
+                        value= 1995,
                         style={'backgroundColor':"white"}),
                 ],  className="two columns"),
                 html.Div([
@@ -266,6 +307,18 @@ plots_card = dbc.Card(
                     html.Div([
                             dcc.Graph(id='graph-models-released')
                         ], className="four columns"),
+                    
+                ], className="row"),
+
+        html.Div([
+                    html.Div([
+                            dcc.Graph(id='table-of-scores')
+                        ], className="four columns", ),
+
+                    html.Div([
+                            dcc.Graph(id='table-of-scores-bottom')
+                        ], className="four columns", ),
+
                     
                 ], className="row"),
     ]), style={'backgroundColor': colors['background']}
@@ -315,7 +368,7 @@ app.layout = html.Div([
             )
         ]),
     ]),
-    #dbc.Col(footer_card, width='auto')
+    dbc.Col(footer_card, width='auto')
 ])
 
 
@@ -362,6 +415,41 @@ def update_frequency_chart(make, start_year, end_year):
                               (sel_dataframe['model_year']>=start_year) &
                                (sel_dataframe['model_year']<=end_year)  ]
     fig0 = generate_bar_chart_with_models(dataframe)
+    return fig0
+
+@app.callback(
+    Output('table-of-scores', 'figure'),
+    [
+    Input('select-make', 'value'),
+    Input('start-year', 'value'),
+    Input('end-year', 'value')])
+def update_frequency_chart(make, start_year, end_year):
+    vehicle_type = "fuel-only"
+    sel_dataframe = dataframe_dictionary[vehicle_type]
+    dataframe = sel_dataframe[(sel_dataframe['make_']==make) & 
+                              (sel_dataframe['model_year']>=start_year) &
+                               (sel_dataframe['model_year']<=end_year)  &
+                               (sel_dataframe['co2_rating']>=7) ]
+    title_str = "Models with a CO2 rating of 7 or above"
+    fig0 = display_table(dataframe, title_str)
+    return fig0
+
+
+@app.callback(
+    Output('table-of-scores-bottom', 'figure'),
+    [
+    Input('select-make', 'value'),
+    Input('start-year', 'value'),
+    Input('end-year', 'value')])
+def update_frequency_chart(make, start_year, end_year):
+    vehicle_type = "fuel-only"
+    sel_dataframe = dataframe_dictionary[vehicle_type]
+    dataframe = sel_dataframe[(sel_dataframe['make_']==make) & 
+                              (sel_dataframe['model_year']>=start_year) &
+                               (sel_dataframe['model_year']<=end_year)  &
+                               (sel_dataframe['co2_rating']<=3) ]
+    title_str = "Models with a CO2 rating of 3 or lower"
+    fig0 = display_table(dataframe, title_str)
     return fig0
 
 if __name__ == '__main__':  
