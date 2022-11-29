@@ -1,4 +1,4 @@
-name: ml-project-env
+name: ml-project-env-10
 channels:
   - defaults
 dependencies:
