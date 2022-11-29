@@ -2,7 +2,7 @@ name: ml-project-env
 channels:
   - defaults
 dependencies:
-  - python=3.7
+  - python=3.10
   - pip
   - ipykernel
   - mkl
