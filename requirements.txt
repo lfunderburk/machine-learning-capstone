@@ -171,3 +171,6 @@ itsdangerous==2.1.2
 dash-bootstrap-components==1.2.1
 scikit-learn==1.1.3
 sklearn-evaluation
+researchpy==0.3.5
+patsy==0.5.3
+statsmodels==0.13.5
