@@ -58,5 +58,13 @@ name             Ran?      Elapsed (s)    Percentage
 data_extraction  True          15.8406           100
 ```
 
+## Using the dashboard locally
+
+From the root directory, execute
+
+```
+python app.py
+```
+
 ### Additional data sources
 https://www.fueleconomy.gov/feg/download.shtml
