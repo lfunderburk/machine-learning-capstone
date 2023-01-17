@@ -10,8 +10,10 @@ class FuelEconomySpider(Spider):
 
     def parse(self, response):
         # extract the URLs of the .zip files from the HTML
-        sel = Selector(response)
-        zip_urls = sel.xpath('//li/a[contains(@href, ".zip")]/@href').extract()
+        table = response.xpath('//*[@id="main-content"]/table')
+        zip_urls = table.xpath('//li/a[contains(@href, ".zip")]/@href').extract()
+
+        
 
         # download the .zip files and save them to a .csv file
         rows = []

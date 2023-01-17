@@ -92,3 +92,4 @@ model.compile(loss="mean_squared_error", optimizer=Adam(), metrics=["mean_absolu
 # train the model using the fit method and a suitable batch size and number of epochs
 early_stopping = EarlyStopping(monitor="val_loss", patience=5)
 history
+

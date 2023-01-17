@@ -20,6 +20,7 @@ If something fails during pip command installation, execute
 ```
 conda activate ml-project-env
 pip install -r requirements
+conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
 ```
 
 You can use the environment on a Jupyter notebook via the command
