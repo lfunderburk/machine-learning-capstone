@@ -1,1 +1,2 @@
 from scripts.data_extraction import fuel_consumption_metadata_extraction
+from scripts import utils

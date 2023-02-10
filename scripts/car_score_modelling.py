@@ -3,8 +3,6 @@ import sys, os
 from pathlib import Path
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import GridSearchCV, train_test_split
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
-from sklearn.compose import ColumnTransformer
 from sklearn.metrics import confusion_matrix, \
                             classification_report, \
                             accuracy_score,\
@@ -19,23 +17,12 @@ import matplotlib.pyplot as plt
 from xgboost import XGBClassifier
 from imblearn.over_sampling import SMOTE
 import joblib
+import utils
 
-def read_data(path):
-    
-    # Fuel based cars
-    file_name_2022_1995 = "1995_2022_vehicle_fuel_consumption.csv"
-    
-    # Electric cars
-    pure_electric = "Battery-electric_vehicles_2012-2022_(2022-05-16).csv"
-    hybric_vehicle = "Plug-in_hybrid_electric_vehicles_2012-2022_(2022-03-28).csv"
 
-    # Read data files
-    master_df = pd.read_csv(Path(path ,f'{file_name_2022_1995}'))
-    electric_df = pd.read_csv(Path(path ,f'{pure_electric}'))
-    hybrid_df = pd.read_csv(Path(path ,f'{hybric_vehicle}'))
-
+def remove_missing_values(fuel_df):
     # Set up data pipeline - goal is to predict co2_rating 
-    non_na_rating = master_df[~master_df['co2_rating'].isna()]
+    non_na_rating = fuel_df[~fuel_df['co2_rating'].isna()]
     non_na_rating_class = non_na_rating.copy()
     non_na_rating_class['co2_rating'] = non_na_rating_class['co2_rating'].astype(int)
 
@@ -46,6 +33,23 @@ def read_data(path):
     return non_na_rating_class
 
 def train_and_evaluate_model(X_train, y_train, X_test, y_test, model_pipeline, model_name):
+    """
+    This function trains and evaluates model, and generates confusion matrix, classification report, and accuracy score
+
+    Parameters:
+    ----------
+        X_train
+        y_train
+        X_test
+        y_test
+        model_pipeline
+        model_name
+
+    Returns:
+    -------
+        None
+
+    """
     
     model_pipeline.fit(X_train, y_train.values.ravel())
 
@@ -114,27 +118,21 @@ def classify_grid_search_cv_tuning(model, parameters, X_train, X_test, y_train, 
 
 if __name__=="__main__":
 
+    # Set up paths
     sys.path.append(os.path.abspath(os.path.join('.','./data/', './clean-data/')))
     sys.path.append(os.path.abspath(os.path.join('.','./models/')))
-    paths = sys.path
-    clean_path = [item for item in paths if "machine-learning-capstone\\data\\clean-data" in item]
-    clean_data = clean_path[0]
 
-    non_na_rating = read_data(clean_data)
+
+    # Read data
+    fuel_df, electric_df, hybrid_df = utils.read_data("./data/clean-data/")
+    non_na_rating_class = remove_missing_values(fuel_df)
     
     # Set X and Y variables 
     # Response variable
-    Y = non_na_rating[['co2_rating']]
+    Y = non_na_rating_class[['co2_rating']]
 
     # Dependent variables
-    X = non_na_rating[['vehicleclass_','make_',
-                        'model.1_','model_year',
-                        'cylinders_','fuelconsumption_city(l/100km)',
-                        'fuelconsumption_hwy(l/100km)',
-                        'fuelconsumption_comb(l/100km)',
-                        'fuelconsumption_comb(mpg)',
-                        'co2emissions_(g/km)',
-                        'number_of_gears']]
+    X = non_na_rating_class[utils.var_list]
 
     # Split data
     X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
@@ -142,29 +140,15 @@ if __name__=="__main__":
     
     # Set up pipeline
     # Set up parameters for the model - numerical and categorical
-    numeric_features =  ['model_year','cylinders_','fuelconsumption_city(l/100km)','fuelconsumption_hwy(l/100km)',
-                     'fuelconsumption_comb(l/100km)','fuelconsumption_comb(mpg)','co2emissions_(g/km)','number_of_gears']
-    categorical_features = ['vehicleclass_']
+    numeric_features =  utils.numeric_features
+    categorical_features = utils.categorical_features
 
     # Use smote to balance the data
     smote = SMOTE(random_state=42)
     X_train, y_train = smote.fit_resample(X_train[numeric_features], y_train)
 
-
-    # Set up numerical and categorical transformers
-    numeric_transformer = Pipeline(
-                                steps=[("scaler", StandardScaler())]
-                            )
-
-    categorical_transformer = OneHotEncoder(handle_unknown="ignore")
-
     # Set up preprocessor
-    preprocessor = ColumnTransformer(
-        transformers=[
-            ("num", numeric_transformer, numeric_features),
-            #("cat", categorical_transformer, categorical_features),
-        ]
-    )
+    preprocessor = utils.preprocessor
 
     # Set up model pipeline
     clf1 = KNeighborsClassifier(3,)
@@ -189,5 +173,6 @@ if __name__=="__main__":
     # Save model
     joblib.dump(best_dtc, './models/hard_voting_classifier.pkl')
 
+    
 
 
