@@ -8469,3 +8469,388 @@
 8467,2022-04,British Columbia and the Territories,Other fuel types,Pickup trucks,Number of vehicles,Units,units,0.0
 8468,2022-04,British Columbia and the Territories,Other fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,0.0
 8469,2022-04,British Columbia and the Territories,Other fuel types,Vans,Number of vehicles,Units,units,0.0
+8470,2022-07,Canada,All fuel types,"Total, vehicle type",Number of vehicles,Units,units,394348.0
+8471,2022-07,Canada,All fuel types,Passenger cars,Number of vehicles,Units,units,76816.0
+8472,2022-07,Canada,All fuel types,Pickup trucks,Number of vehicles,Units,units,90954.0
+8473,2022-07,Canada,All fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,215821.0
+8474,2022-07,Canada,All fuel types,Vans,Number of vehicles,Units,units,10757.0
+8475,2022-07,Canada,Gasoline,"Total, vehicle type",Number of vehicles,Units,units,318834.0
+8476,2022-07,Canada,Gasoline,Passenger cars,Number of vehicles,Units,units,58403.0
+8477,2022-07,Canada,Gasoline,Pickup trucks,Number of vehicles,Units,units,68167.0
+8478,2022-07,Canada,Gasoline,Multi-purpose vehicles,Number of vehicles,Units,units,184227.0
+8479,2022-07,Canada,Gasoline,Vans,Number of vehicles,Units,units,8037.0
+8480,2022-07,Canada,Diesel,"Total, vehicle type",Number of vehicles,Units,units,19682.0
+8481,2022-07,Canada,Diesel,Passenger cars,Number of vehicles,Units,units,0.0
+8482,2022-07,Canada,Diesel,Pickup trucks,Number of vehicles,Units,units,17962.0
+8483,2022-07,Canada,Diesel,Multi-purpose vehicles,Number of vehicles,Units,units,669.0
+8484,2022-07,Canada,Diesel,Vans,Number of vehicles,Units,units,1051.0
+8485,2022-07,Canada,Battery electric,"Total, vehicle type",Number of vehicles,Units,units,29376.0
+8486,2022-07,Canada,Battery electric,Passenger cars,Number of vehicles,Units,units,13807.0
+8487,2022-07,Canada,Battery electric,Pickup trucks,Number of vehicles,Units,units,1260.0
+8488,2022-07,Canada,Battery electric,Multi-purpose vehicles,Number of vehicles,Units,units,14079.0
+8489,2022-07,Canada,Battery electric,Vans,Number of vehicles,Units,units,230.0
+8490,2022-07,Canada,Hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,21514.0
+8491,2022-07,Canada,Hybrid electric,Passenger cars,Number of vehicles,Units,units,3592.0
+8492,2022-07,Canada,Hybrid electric,Pickup trucks,Number of vehicles,Units,units,3565.0
+8493,2022-07,Canada,Hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,13389.0
+8494,2022-07,Canada,Hybrid electric,Vans,Number of vehicles,Units,units,968.0
+8495,2022-07,Canada,Plug-in hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,4937.0
+8496,2022-07,Canada,Plug-in hybrid electric,Passenger cars,Number of vehicles,Units,units,1009.0
+8497,2022-07,Canada,Plug-in hybrid electric,Pickup trucks,Number of vehicles,Units,units,0.0
+8498,2022-07,Canada,Plug-in hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,3457.0
+8499,2022-07,Canada,Plug-in hybrid electric,Vans,Number of vehicles,Units,units,471.0
+8500,2022-07,Canada,Other fuel types,"Total, vehicle type",Number of vehicles,Units,units,5.0
+8501,2022-07,Canada,Other fuel types,Passenger cars,Number of vehicles,Units,units,5.0
+8502,2022-07,Canada,Other fuel types,Pickup trucks,Number of vehicles,Units,units,0.0
+8503,2022-07,Canada,Other fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,0.0
+8504,2022-07,Canada,Other fuel types,Vans,Number of vehicles,Units,units,0.0
+8505,2022-07,Newfoundland and Labrador,All fuel types,"Total, vehicle type",Number of vehicles,Units,units,
+8506,2022-07,Newfoundland and Labrador,All fuel types,Passenger cars,Number of vehicles,Units,units,
+8507,2022-07,Newfoundland and Labrador,All fuel types,Pickup trucks,Number of vehicles,Units,units,
+8508,2022-07,Newfoundland and Labrador,All fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,
+8509,2022-07,Newfoundland and Labrador,All fuel types,Vans,Number of vehicles,Units,units,
+8510,2022-07,Newfoundland and Labrador,Gasoline,"Total, vehicle type",Number of vehicles,Units,units,
+8511,2022-07,Newfoundland and Labrador,Gasoline,Passenger cars,Number of vehicles,Units,units,
+8512,2022-07,Newfoundland and Labrador,Gasoline,Pickup trucks,Number of vehicles,Units,units,
+8513,2022-07,Newfoundland and Labrador,Gasoline,Multi-purpose vehicles,Number of vehicles,Units,units,
+8514,2022-07,Newfoundland and Labrador,Gasoline,Vans,Number of vehicles,Units,units,
+8515,2022-07,Newfoundland and Labrador,Diesel,"Total, vehicle type",Number of vehicles,Units,units,
+8516,2022-07,Newfoundland and Labrador,Diesel,Passenger cars,Number of vehicles,Units,units,
+8517,2022-07,Newfoundland and Labrador,Diesel,Pickup trucks,Number of vehicles,Units,units,
+8518,2022-07,Newfoundland and Labrador,Diesel,Multi-purpose vehicles,Number of vehicles,Units,units,
+8519,2022-07,Newfoundland and Labrador,Diesel,Vans,Number of vehicles,Units,units,
+8520,2022-07,Newfoundland and Labrador,Battery electric,"Total, vehicle type",Number of vehicles,Units,units,
+8521,2022-07,Newfoundland and Labrador,Battery electric,Passenger cars,Number of vehicles,Units,units,
+8522,2022-07,Newfoundland and Labrador,Battery electric,Pickup trucks,Number of vehicles,Units,units,
+8523,2022-07,Newfoundland and Labrador,Battery electric,Multi-purpose vehicles,Number of vehicles,Units,units,
+8524,2022-07,Newfoundland and Labrador,Battery electric,Vans,Number of vehicles,Units,units,
+8525,2022-07,Newfoundland and Labrador,Hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,
+8526,2022-07,Newfoundland and Labrador,Hybrid electric,Passenger cars,Number of vehicles,Units,units,
+8527,2022-07,Newfoundland and Labrador,Hybrid electric,Pickup trucks,Number of vehicles,Units,units,
+8528,2022-07,Newfoundland and Labrador,Hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,
+8529,2022-07,Newfoundland and Labrador,Hybrid electric,Vans,Number of vehicles,Units,units,
+8530,2022-07,Newfoundland and Labrador,Plug-in hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,
+8531,2022-07,Newfoundland and Labrador,Plug-in hybrid electric,Passenger cars,Number of vehicles,Units,units,
+8532,2022-07,Newfoundland and Labrador,Plug-in hybrid electric,Pickup trucks,Number of vehicles,Units,units,
+8533,2022-07,Newfoundland and Labrador,Plug-in hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,
+8534,2022-07,Newfoundland and Labrador,Plug-in hybrid electric,Vans,Number of vehicles,Units,units,
+8535,2022-07,Newfoundland and Labrador,Other fuel types,"Total, vehicle type",Number of vehicles,Units,units,
+8536,2022-07,Newfoundland and Labrador,Other fuel types,Passenger cars,Number of vehicles,Units,units,
+8537,2022-07,Newfoundland and Labrador,Other fuel types,Pickup trucks,Number of vehicles,Units,units,
+8538,2022-07,Newfoundland and Labrador,Other fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,
+8539,2022-07,Newfoundland and Labrador,Other fuel types,Vans,Number of vehicles,Units,units,
+8540,2022-07,Prince Edward Island,All fuel types,"Total, vehicle type",Number of vehicles,Units,units,1393.0
+8541,2022-07,Prince Edward Island,All fuel types,Passenger cars,Number of vehicles,Units,units,287.0
+8542,2022-07,Prince Edward Island,All fuel types,Pickup trucks,Number of vehicles,Units,units,369.0
+8543,2022-07,Prince Edward Island,All fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,717.0
+8544,2022-07,Prince Edward Island,All fuel types,Vans,Number of vehicles,Units,units,20.0
+8545,2022-07,Prince Edward Island,Gasoline,"Total, vehicle type",Number of vehicles,Units,units,1168.0
+8546,2022-07,Prince Edward Island,Gasoline,Passenger cars,Number of vehicles,Units,units,252.0
+8547,2022-07,Prince Edward Island,Gasoline,Pickup trucks,Number of vehicles,Units,units,278.0
+8548,2022-07,Prince Edward Island,Gasoline,Multi-purpose vehicles,Number of vehicles,Units,units,626.0
+8549,2022-07,Prince Edward Island,Gasoline,Vans,Number of vehicles,Units,units,12.0
+8550,2022-07,Prince Edward Island,Diesel,"Total, vehicle type",Number of vehicles,Units,units,73.0
+8551,2022-07,Prince Edward Island,Diesel,Passenger cars,Number of vehicles,Units,units,0.0
+8552,2022-07,Prince Edward Island,Diesel,Pickup trucks,Number of vehicles,Units,units,71.0
+8553,2022-07,Prince Edward Island,Diesel,Multi-purpose vehicles,Number of vehicles,Units,units,1.0
+8554,2022-07,Prince Edward Island,Diesel,Vans,Number of vehicles,Units,units,1.0
+8555,2022-07,Prince Edward Island,Battery electric,"Total, vehicle type",Number of vehicles,Units,units,62.0
+8556,2022-07,Prince Edward Island,Battery electric,Passenger cars,Number of vehicles,Units,units,27.0
+8557,2022-07,Prince Edward Island,Battery electric,Pickup trucks,Number of vehicles,Units,units,5.0
+8558,2022-07,Prince Edward Island,Battery electric,Multi-purpose vehicles,Number of vehicles,Units,units,29.0
+8559,2022-07,Prince Edward Island,Battery electric,Vans,Number of vehicles,Units,units,1.0
+8560,2022-07,Prince Edward Island,Hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,79.0
+8561,2022-07,Prince Edward Island,Hybrid electric,Passenger cars,Number of vehicles,Units,units,7.0
+8562,2022-07,Prince Edward Island,Hybrid electric,Pickup trucks,Number of vehicles,Units,units,15.0
+8563,2022-07,Prince Edward Island,Hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,52.0
+8564,2022-07,Prince Edward Island,Hybrid electric,Vans,Number of vehicles,Units,units,5.0
+8565,2022-07,Prince Edward Island,Plug-in hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,11.0
+8566,2022-07,Prince Edward Island,Plug-in hybrid electric,Passenger cars,Number of vehicles,Units,units,1.0
+8567,2022-07,Prince Edward Island,Plug-in hybrid electric,Pickup trucks,Number of vehicles,Units,units,0.0
+8568,2022-07,Prince Edward Island,Plug-in hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,9.0
+8569,2022-07,Prince Edward Island,Plug-in hybrid electric,Vans,Number of vehicles,Units,units,1.0
+8570,2022-07,Prince Edward Island,Other fuel types,"Total, vehicle type",Number of vehicles,Units,units,0.0
+8571,2022-07,Prince Edward Island,Other fuel types,Passenger cars,Number of vehicles,Units,units,0.0
+8572,2022-07,Prince Edward Island,Other fuel types,Pickup trucks,Number of vehicles,Units,units,0.0
+8573,2022-07,Prince Edward Island,Other fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,0.0
+8574,2022-07,Prince Edward Island,Other fuel types,Vans,Number of vehicles,Units,units,0.0
+8575,2022-07,Nova Scotia,All fuel types,"Total, vehicle type",Number of vehicles,Units,units,
+8576,2022-07,Nova Scotia,All fuel types,Passenger cars,Number of vehicles,Units,units,
+8577,2022-07,Nova Scotia,All fuel types,Pickup trucks,Number of vehicles,Units,units,
+8578,2022-07,Nova Scotia,All fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,
+8579,2022-07,Nova Scotia,All fuel types,Vans,Number of vehicles,Units,units,
+8580,2022-07,Nova Scotia,Gasoline,"Total, vehicle type",Number of vehicles,Units,units,
+8581,2022-07,Nova Scotia,Gasoline,Passenger cars,Number of vehicles,Units,units,
+8582,2022-07,Nova Scotia,Gasoline,Pickup trucks,Number of vehicles,Units,units,
+8583,2022-07,Nova Scotia,Gasoline,Multi-purpose vehicles,Number of vehicles,Units,units,
+8584,2022-07,Nova Scotia,Gasoline,Vans,Number of vehicles,Units,units,
+8585,2022-07,Nova Scotia,Diesel,"Total, vehicle type",Number of vehicles,Units,units,
+8586,2022-07,Nova Scotia,Diesel,Passenger cars,Number of vehicles,Units,units,
+8587,2022-07,Nova Scotia,Diesel,Pickup trucks,Number of vehicles,Units,units,
+8588,2022-07,Nova Scotia,Diesel,Multi-purpose vehicles,Number of vehicles,Units,units,
+8589,2022-07,Nova Scotia,Diesel,Vans,Number of vehicles,Units,units,
+8590,2022-07,Nova Scotia,Battery electric,"Total, vehicle type",Number of vehicles,Units,units,
+8591,2022-07,Nova Scotia,Battery electric,Passenger cars,Number of vehicles,Units,units,
+8592,2022-07,Nova Scotia,Battery electric,Pickup trucks,Number of vehicles,Units,units,
+8593,2022-07,Nova Scotia,Battery electric,Multi-purpose vehicles,Number of vehicles,Units,units,
+8594,2022-07,Nova Scotia,Battery electric,Vans,Number of vehicles,Units,units,
+8595,2022-07,Nova Scotia,Hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,
+8596,2022-07,Nova Scotia,Hybrid electric,Passenger cars,Number of vehicles,Units,units,
+8597,2022-07,Nova Scotia,Hybrid electric,Pickup trucks,Number of vehicles,Units,units,
+8598,2022-07,Nova Scotia,Hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,
+8599,2022-07,Nova Scotia,Hybrid electric,Vans,Number of vehicles,Units,units,
+8600,2022-07,Nova Scotia,Plug-in hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,
+8601,2022-07,Nova Scotia,Plug-in hybrid electric,Passenger cars,Number of vehicles,Units,units,
+8602,2022-07,Nova Scotia,Plug-in hybrid electric,Pickup trucks,Number of vehicles,Units,units,
+8603,2022-07,Nova Scotia,Plug-in hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,
+8604,2022-07,Nova Scotia,Plug-in hybrid electric,Vans,Number of vehicles,Units,units,
+8605,2022-07,Nova Scotia,Other fuel types,"Total, vehicle type",Number of vehicles,Units,units,
+8606,2022-07,Nova Scotia,Other fuel types,Passenger cars,Number of vehicles,Units,units,
+8607,2022-07,Nova Scotia,Other fuel types,Pickup trucks,Number of vehicles,Units,units,
+8608,2022-07,Nova Scotia,Other fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,
+8609,2022-07,Nova Scotia,Other fuel types,Vans,Number of vehicles,Units,units,
+8610,2022-07,New Brunswick,All fuel types,"Total, vehicle type",Number of vehicles,Units,units,8478.0
+8611,2022-07,New Brunswick,All fuel types,Passenger cars,Number of vehicles,Units,units,1426.0
+8612,2022-07,New Brunswick,All fuel types,Pickup trucks,Number of vehicles,Units,units,2333.0
+8613,2022-07,New Brunswick,All fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,4567.0
+8614,2022-07,New Brunswick,All fuel types,Vans,Number of vehicles,Units,units,152.0
+8615,2022-07,New Brunswick,Gasoline,"Total, vehicle type",Number of vehicles,Units,units,7458.0
+8616,2022-07,New Brunswick,Gasoline,Passenger cars,Number of vehicles,Units,units,1273.0
+8617,2022-07,New Brunswick,Gasoline,Pickup trucks,Number of vehicles,Units,units,1894.0
+8618,2022-07,New Brunswick,Gasoline,Multi-purpose vehicles,Number of vehicles,Units,units,4155.0
+8619,2022-07,New Brunswick,Gasoline,Vans,Number of vehicles,Units,units,136.0
+8620,2022-07,New Brunswick,Diesel,"Total, vehicle type",Number of vehicles,Units,units,349.0
+8621,2022-07,New Brunswick,Diesel,Passenger cars,Number of vehicles,Units,units,0.0
+8622,2022-07,New Brunswick,Diesel,Pickup trucks,Number of vehicles,Units,units,344.0
+8623,2022-07,New Brunswick,Diesel,Multi-purpose vehicles,Number of vehicles,Units,units,4.0
+8624,2022-07,New Brunswick,Diesel,Vans,Number of vehicles,Units,units,1.0
+8625,2022-07,New Brunswick,Battery electric,"Total, vehicle type",Number of vehicles,Units,units,190.0
+8626,2022-07,New Brunswick,Battery electric,Passenger cars,Number of vehicles,Units,units,79.0
+8627,2022-07,New Brunswick,Battery electric,Pickup trucks,Number of vehicles,Units,units,13.0
+8628,2022-07,New Brunswick,Battery electric,Multi-purpose vehicles,Number of vehicles,Units,units,97.0
+8629,2022-07,New Brunswick,Battery electric,Vans,Number of vehicles,Units,units,1.0
+8630,2022-07,New Brunswick,Hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,418.0
+8631,2022-07,New Brunswick,Hybrid electric,Passenger cars,Number of vehicles,Units,units,66.0
+8632,2022-07,New Brunswick,Hybrid electric,Pickup trucks,Number of vehicles,Units,units,82.0
+8633,2022-07,New Brunswick,Hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,259.0
+8634,2022-07,New Brunswick,Hybrid electric,Vans,Number of vehicles,Units,units,11.0
+8635,2022-07,New Brunswick,Plug-in hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,63.0
+8636,2022-07,New Brunswick,Plug-in hybrid electric,Passenger cars,Number of vehicles,Units,units,8.0
+8637,2022-07,New Brunswick,Plug-in hybrid electric,Pickup trucks,Number of vehicles,Units,units,0.0
+8638,2022-07,New Brunswick,Plug-in hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,52.0
+8639,2022-07,New Brunswick,Plug-in hybrid electric,Vans,Number of vehicles,Units,units,3.0
+8640,2022-07,New Brunswick,Other fuel types,"Total, vehicle type",Number of vehicles,Units,units,0.0
+8641,2022-07,New Brunswick,Other fuel types,Passenger cars,Number of vehicles,Units,units,0.0
+8642,2022-07,New Brunswick,Other fuel types,Pickup trucks,Number of vehicles,Units,units,0.0
+8643,2022-07,New Brunswick,Other fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,0.0
+8644,2022-07,New Brunswick,Other fuel types,Vans,Number of vehicles,Units,units,0.0
+8645,2022-07,Quebec,All fuel types,"Total, vehicle type",Number of vehicles,Units,units,97821.0
+8646,2022-07,Quebec,All fuel types,Passenger cars,Number of vehicles,Units,units,23135.0
+8647,2022-07,Quebec,All fuel types,Pickup trucks,Number of vehicles,Units,units,17328.0
+8648,2022-07,Quebec,All fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,54634.0
+8649,2022-07,Quebec,All fuel types,Vans,Number of vehicles,Units,units,2724.0
+8650,2022-07,Quebec,Gasoline,"Total, vehicle type",Number of vehicles,Units,units,77158.0
+8651,2022-07,Quebec,Gasoline,Passenger cars,Number of vehicles,Units,units,16399.0
+8652,2022-07,Quebec,Gasoline,Pickup trucks,Number of vehicles,Units,units,12688.0
+8653,2022-07,Quebec,Gasoline,Multi-purpose vehicles,Number of vehicles,Units,units,46184.0
+8654,2022-07,Quebec,Gasoline,Vans,Number of vehicles,Units,units,1887.0
+8655,2022-07,Quebec,Diesel,"Total, vehicle type",Number of vehicles,Units,units,3865.0
+8656,2022-07,Quebec,Diesel,Passenger cars,Number of vehicles,Units,units,0.0
+8657,2022-07,Quebec,Diesel,Pickup trucks,Number of vehicles,Units,units,3536.0
+8658,2022-07,Quebec,Diesel,Multi-purpose vehicles,Number of vehicles,Units,units,103.0
+8659,2022-07,Quebec,Diesel,Vans,Number of vehicles,Units,units,226.0
+8660,2022-07,Quebec,Battery electric,"Total, vehicle type",Number of vehicles,Units,units,9784.0
+8661,2022-07,Quebec,Battery electric,Passenger cars,Number of vehicles,Units,units,5283.0
+8662,2022-07,Quebec,Battery electric,Pickup trucks,Number of vehicles,Units,units,299.0
+8663,2022-07,Quebec,Battery electric,Multi-purpose vehicles,Number of vehicles,Units,units,4088.0
+8664,2022-07,Quebec,Battery electric,Vans,Number of vehicles,Units,units,114.0
+8665,2022-07,Quebec,Hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,4604.0
+8666,2022-07,Quebec,Hybrid electric,Passenger cars,Number of vehicles,Units,units,938.0
+8667,2022-07,Quebec,Hybrid electric,Pickup trucks,Number of vehicles,Units,units,805.0
+8668,2022-07,Quebec,Hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,2700.0
+8669,2022-07,Quebec,Hybrid electric,Vans,Number of vehicles,Units,units,161.0
+8670,2022-07,Quebec,Plug-in hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,2410.0
+8671,2022-07,Quebec,Plug-in hybrid electric,Passenger cars,Number of vehicles,Units,units,515.0
+8672,2022-07,Quebec,Plug-in hybrid electric,Pickup trucks,Number of vehicles,Units,units,0.0
+8673,2022-07,Quebec,Plug-in hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,1559.0
+8674,2022-07,Quebec,Plug-in hybrid electric,Vans,Number of vehicles,Units,units,336.0
+8675,2022-07,Quebec,Other fuel types,"Total, vehicle type",Number of vehicles,Units,units,0.0
+8676,2022-07,Quebec,Other fuel types,Passenger cars,Number of vehicles,Units,units,0.0
+8677,2022-07,Quebec,Other fuel types,Pickup trucks,Number of vehicles,Units,units,0.0
+8678,2022-07,Quebec,Other fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,0.0
+8679,2022-07,Quebec,Other fuel types,Vans,Number of vehicles,Units,units,0.0
+8680,2022-07,Ontario,All fuel types,"Total, vehicle type",Number of vehicles,Units,units,153734.0
+8681,2022-07,Ontario,All fuel types,Passenger cars,Number of vehicles,Units,units,30643.0
+8682,2022-07,Ontario,All fuel types,Pickup trucks,Number of vehicles,Units,units,32026.0
+8683,2022-07,Ontario,All fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,86566.0
+8684,2022-07,Ontario,All fuel types,Vans,Number of vehicles,Units,units,4499.0
+8685,2022-07,Ontario,Gasoline,"Total, vehicle type",Number of vehicles,Units,units,127413.0
+8686,2022-07,Ontario,Gasoline,Passenger cars,Number of vehicles,Units,units,24914.0
+8687,2022-07,Ontario,Gasoline,Pickup trucks,Number of vehicles,Units,units,24987.0
+8688,2022-07,Ontario,Gasoline,Multi-purpose vehicles,Number of vehicles,Units,units,74126.0
+8689,2022-07,Ontario,Gasoline,Vans,Number of vehicles,Units,units,3386.0
+8690,2022-07,Ontario,Diesel,"Total, vehicle type",Number of vehicles,Units,units,5918.0
+8691,2022-07,Ontario,Diesel,Passenger cars,Number of vehicles,Units,units,0.0
+8692,2022-07,Ontario,Diesel,Pickup trucks,Number of vehicles,Units,units,5151.0
+8693,2022-07,Ontario,Diesel,Multi-purpose vehicles,Number of vehicles,Units,units,294.0
+8694,2022-07,Ontario,Diesel,Vans,Number of vehicles,Units,units,473.0
+8695,2022-07,Ontario,Battery electric,"Total, vehicle type",Number of vehicles,Units,units,9720.0
+8696,2022-07,Ontario,Battery electric,Passenger cars,Number of vehicles,Units,units,3998.0
+8697,2022-07,Ontario,Battery electric,Pickup trucks,Number of vehicles,Units,units,470.0
+8698,2022-07,Ontario,Battery electric,Multi-purpose vehicles,Number of vehicles,Units,units,5206.0
+8699,2022-07,Ontario,Battery electric,Vans,Number of vehicles,Units,units,46.0
+8700,2022-07,Ontario,Hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,9386.0
+8701,2022-07,Ontario,Hybrid electric,Passenger cars,Number of vehicles,Units,units,1530.0
+8702,2022-07,Ontario,Hybrid electric,Pickup trucks,Number of vehicles,Units,units,1418.0
+8703,2022-07,Ontario,Hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,5939.0
+8704,2022-07,Ontario,Hybrid electric,Vans,Number of vehicles,Units,units,499.0
+8705,2022-07,Ontario,Plug-in hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,1297.0
+8706,2022-07,Ontario,Plug-in hybrid electric,Passenger cars,Number of vehicles,Units,units,201.0
+8707,2022-07,Ontario,Plug-in hybrid electric,Pickup trucks,Number of vehicles,Units,units,0.0
+8708,2022-07,Ontario,Plug-in hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,1001.0
+8709,2022-07,Ontario,Plug-in hybrid electric,Vans,Number of vehicles,Units,units,95.0
+8710,2022-07,Ontario,Other fuel types,"Total, vehicle type",Number of vehicles,Units,units,0.0
+8711,2022-07,Ontario,Other fuel types,Passenger cars,Number of vehicles,Units,units,0.0
+8712,2022-07,Ontario,Other fuel types,Pickup trucks,Number of vehicles,Units,units,0.0
+8713,2022-07,Ontario,Other fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,0.0
+8714,2022-07,Ontario,Other fuel types,Vans,Number of vehicles,Units,units,0.0
+8715,2022-07,Manitoba,All fuel types,"Total, vehicle type",Number of vehicles,Units,units,10520.0
+8716,2022-07,Manitoba,All fuel types,Passenger cars,Number of vehicles,Units,units,1482.0
+8717,2022-07,Manitoba,All fuel types,Pickup trucks,Number of vehicles,Units,units,2877.0
+8718,2022-07,Manitoba,All fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,5874.0
+8719,2022-07,Manitoba,All fuel types,Vans,Number of vehicles,Units,units,287.0
+8720,2022-07,Manitoba,Gasoline,"Total, vehicle type",Number of vehicles,Units,units,9300.0
+8721,2022-07,Manitoba,Gasoline,Passenger cars,Number of vehicles,Units,units,1342.0
+8722,2022-07,Manitoba,Gasoline,Pickup trucks,Number of vehicles,Units,units,2342.0
+8723,2022-07,Manitoba,Gasoline,Multi-purpose vehicles,Number of vehicles,Units,units,5370.0
+8724,2022-07,Manitoba,Gasoline,Vans,Number of vehicles,Units,units,246.0
+8725,2022-07,Manitoba,Diesel,"Total, vehicle type",Number of vehicles,Units,units,450.0
+8726,2022-07,Manitoba,Diesel,Passenger cars,Number of vehicles,Units,units,0.0
+8727,2022-07,Manitoba,Diesel,Pickup trucks,Number of vehicles,Units,units,425.0
+8728,2022-07,Manitoba,Diesel,Multi-purpose vehicles,Number of vehicles,Units,units,18.0
+8729,2022-07,Manitoba,Diesel,Vans,Number of vehicles,Units,units,7.0
+8730,2022-07,Manitoba,Battery electric,"Total, vehicle type",Number of vehicles,Units,units,260.0
+8731,2022-07,Manitoba,Battery electric,Passenger cars,Number of vehicles,Units,units,75.0
+8732,2022-07,Manitoba,Battery electric,Pickup trucks,Number of vehicles,Units,units,30.0
+8733,2022-07,Manitoba,Battery electric,Multi-purpose vehicles,Number of vehicles,Units,units,145.0
+8734,2022-07,Manitoba,Battery electric,Vans,Number of vehicles,Units,units,10.0
+8735,2022-07,Manitoba,Hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,457.0
+8736,2022-07,Manitoba,Hybrid electric,Passenger cars,Number of vehicles,Units,units,56.0
+8737,2022-07,Manitoba,Hybrid electric,Pickup trucks,Number of vehicles,Units,units,80.0
+8738,2022-07,Manitoba,Hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,298.0
+8739,2022-07,Manitoba,Hybrid electric,Vans,Number of vehicles,Units,units,23.0
+8740,2022-07,Manitoba,Plug-in hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,53.0
+8741,2022-07,Manitoba,Plug-in hybrid electric,Passenger cars,Number of vehicles,Units,units,9.0
+8742,2022-07,Manitoba,Plug-in hybrid electric,Pickup trucks,Number of vehicles,Units,units,0.0
+8743,2022-07,Manitoba,Plug-in hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,43.0
+8744,2022-07,Manitoba,Plug-in hybrid electric,Vans,Number of vehicles,Units,units,1.0
+8745,2022-07,Manitoba,Other fuel types,"Total, vehicle type",Number of vehicles,Units,units,0.0
+8746,2022-07,Manitoba,Other fuel types,Passenger cars,Number of vehicles,Units,units,0.0
+8747,2022-07,Manitoba,Other fuel types,Pickup trucks,Number of vehicles,Units,units,0.0
+8748,2022-07,Manitoba,Other fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,0.0
+8749,2022-07,Manitoba,Other fuel types,Vans,Number of vehicles,Units,units,0.0
+8750,2022-07,Saskatchewan,All fuel types,"Total, vehicle type",Number of vehicles,Units,units,11142.0
+8751,2022-07,Saskatchewan,All fuel types,Passenger cars,Number of vehicles,Units,units,928.0
+8752,2022-07,Saskatchewan,All fuel types,Pickup trucks,Number of vehicles,Units,units,4231.0
+8753,2022-07,Saskatchewan,All fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,5769.0
+8754,2022-07,Saskatchewan,All fuel types,Vans,Number of vehicles,Units,units,214.0
+8755,2022-07,Saskatchewan,Gasoline,"Total, vehicle type",Number of vehicles,Units,units,9426.0
+8756,2022-07,Saskatchewan,Gasoline,Passenger cars,Number of vehicles,Units,units,845.0
+8757,2022-07,Saskatchewan,Gasoline,Pickup trucks,Number of vehicles,Units,units,3011.0
+8758,2022-07,Saskatchewan,Gasoline,Multi-purpose vehicles,Number of vehicles,Units,units,5375.0
+8759,2022-07,Saskatchewan,Gasoline,Vans,Number of vehicles,Units,units,195.0
+8760,2022-07,Saskatchewan,Diesel,"Total, vehicle type",Number of vehicles,Units,units,1159.0
+8761,2022-07,Saskatchewan,Diesel,Passenger cars,Number of vehicles,Units,units,0.0
+8762,2022-07,Saskatchewan,Diesel,Pickup trucks,Number of vehicles,Units,units,1113.0
+8763,2022-07,Saskatchewan,Diesel,Multi-purpose vehicles,Number of vehicles,Units,units,40.0
+8764,2022-07,Saskatchewan,Diesel,Vans,Number of vehicles,Units,units,6.0
+8765,2022-07,Saskatchewan,Battery electric,"Total, vehicle type",Number of vehicles,Units,units,174.0
+8766,2022-07,Saskatchewan,Battery electric,Passenger cars,Number of vehicles,Units,units,48.0
+8767,2022-07,Saskatchewan,Battery electric,Pickup trucks,Number of vehicles,Units,units,31.0
+8768,2022-07,Saskatchewan,Battery electric,Multi-purpose vehicles,Number of vehicles,Units,units,94.0
+8769,2022-07,Saskatchewan,Battery electric,Vans,Number of vehicles,Units,units,1.0
+8770,2022-07,Saskatchewan,Hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,354.0
+8771,2022-07,Saskatchewan,Hybrid electric,Passenger cars,Number of vehicles,Units,units,30.0
+8772,2022-07,Saskatchewan,Hybrid electric,Pickup trucks,Number of vehicles,Units,units,76.0
+8773,2022-07,Saskatchewan,Hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,237.0
+8774,2022-07,Saskatchewan,Hybrid electric,Vans,Number of vehicles,Units,units,11.0
+8775,2022-07,Saskatchewan,Plug-in hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,29.0
+8776,2022-07,Saskatchewan,Plug-in hybrid electric,Passenger cars,Number of vehicles,Units,units,5.0
+8777,2022-07,Saskatchewan,Plug-in hybrid electric,Pickup trucks,Number of vehicles,Units,units,0.0
+8778,2022-07,Saskatchewan,Plug-in hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,23.0
+8779,2022-07,Saskatchewan,Plug-in hybrid electric,Vans,Number of vehicles,Units,units,1.0
+8780,2022-07,Saskatchewan,Other fuel types,"Total, vehicle type",Number of vehicles,Units,units,0.0
+8781,2022-07,Saskatchewan,Other fuel types,Passenger cars,Number of vehicles,Units,units,0.0
+8782,2022-07,Saskatchewan,Other fuel types,Pickup trucks,Number of vehicles,Units,units,0.0
+8783,2022-07,Saskatchewan,Other fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,0.0
+8784,2022-07,Saskatchewan,Other fuel types,Vans,Number of vehicles,Units,units,0.0
+8785,2022-07,Alberta,All fuel types,"Total, vehicle type",Number of vehicles,Units,units,
+8786,2022-07,Alberta,All fuel types,Passenger cars,Number of vehicles,Units,units,
+8787,2022-07,Alberta,All fuel types,Pickup trucks,Number of vehicles,Units,units,
+8788,2022-07,Alberta,All fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,
+8789,2022-07,Alberta,All fuel types,Vans,Number of vehicles,Units,units,
+8790,2022-07,Alberta,Gasoline,"Total, vehicle type",Number of vehicles,Units,units,
+8791,2022-07,Alberta,Gasoline,Passenger cars,Number of vehicles,Units,units,
+8792,2022-07,Alberta,Gasoline,Pickup trucks,Number of vehicles,Units,units,
+8793,2022-07,Alberta,Gasoline,Multi-purpose vehicles,Number of vehicles,Units,units,
+8794,2022-07,Alberta,Gasoline,Vans,Number of vehicles,Units,units,
+8795,2022-07,Alberta,Diesel,"Total, vehicle type",Number of vehicles,Units,units,
+8796,2022-07,Alberta,Diesel,Passenger cars,Number of vehicles,Units,units,
+8797,2022-07,Alberta,Diesel,Pickup trucks,Number of vehicles,Units,units,
+8798,2022-07,Alberta,Diesel,Multi-purpose vehicles,Number of vehicles,Units,units,
+8799,2022-07,Alberta,Diesel,Vans,Number of vehicles,Units,units,
+8800,2022-07,Alberta,Battery electric,"Total, vehicle type",Number of vehicles,Units,units,
+8801,2022-07,Alberta,Battery electric,Passenger cars,Number of vehicles,Units,units,
+8802,2022-07,Alberta,Battery electric,Pickup trucks,Number of vehicles,Units,units,
+8803,2022-07,Alberta,Battery electric,Multi-purpose vehicles,Number of vehicles,Units,units,
+8804,2022-07,Alberta,Battery electric,Vans,Number of vehicles,Units,units,
+8805,2022-07,Alberta,Hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,
+8806,2022-07,Alberta,Hybrid electric,Passenger cars,Number of vehicles,Units,units,
+8807,2022-07,Alberta,Hybrid electric,Pickup trucks,Number of vehicles,Units,units,
+8808,2022-07,Alberta,Hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,
+8809,2022-07,Alberta,Hybrid electric,Vans,Number of vehicles,Units,units,
+8810,2022-07,Alberta,Plug-in hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,
+8811,2022-07,Alberta,Plug-in hybrid electric,Passenger cars,Number of vehicles,Units,units,
+8812,2022-07,Alberta,Plug-in hybrid electric,Pickup trucks,Number of vehicles,Units,units,
+8813,2022-07,Alberta,Plug-in hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,
+8814,2022-07,Alberta,Plug-in hybrid electric,Vans,Number of vehicles,Units,units,
+8815,2022-07,Alberta,Other fuel types,"Total, vehicle type",Number of vehicles,Units,units,
+8816,2022-07,Alberta,Other fuel types,Passenger cars,Number of vehicles,Units,units,
+8817,2022-07,Alberta,Other fuel types,Pickup trucks,Number of vehicles,Units,units,
+8818,2022-07,Alberta,Other fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,
+8819,2022-07,Alberta,Other fuel types,Vans,Number of vehicles,Units,units,
+8820,2022-07,British Columbia and the Territories,All fuel types,"Total, vehicle type",Number of vehicles,Units,units,47133.0
+8821,2022-07,British Columbia and the Territories,All fuel types,Passenger cars,Number of vehicles,Units,units,10740.0
+8822,2022-07,British Columbia and the Territories,All fuel types,Pickup trucks,Number of vehicles,Units,units,9963.0
+8823,2022-07,British Columbia and the Territories,All fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,25061.0
+8824,2022-07,British Columbia and the Territories,All fuel types,Vans,Number of vehicles,Units,units,1369.0
+8825,2022-07,British Columbia and the Territories,Gasoline,"Total, vehicle type",Number of vehicles,Units,units,32889.0
+8826,2022-07,British Columbia and the Territories,Gasoline,Passenger cars,Number of vehicles,Units,units,6118.0
+8827,2022-07,British Columbia and the Territories,Gasoline,Pickup trucks,Number of vehicles,Units,units,6882.0
+8828,2022-07,British Columbia and the Territories,Gasoline,Multi-purpose vehicles,Number of vehicles,Units,units,18971.0
+8829,2022-07,British Columbia and the Territories,Gasoline,Vans,Number of vehicles,Units,units,918.0
+8830,2022-07,British Columbia and the Territories,Diesel,"Total, vehicle type",Number of vehicles,Units,units,2688.0
+8831,2022-07,British Columbia and the Territories,Diesel,Passenger cars,Number of vehicles,Units,units,0.0
+8832,2022-07,British Columbia and the Territories,Diesel,Pickup trucks,Number of vehicles,Units,units,2366.0
+8833,2022-07,British Columbia and the Territories,Diesel,Multi-purpose vehicles,Number of vehicles,Units,units,76.0
+8834,2022-07,British Columbia and the Territories,Diesel,Vans,Number of vehicles,Units,units,246.0
+8835,2022-07,British Columbia and the Territories,Battery electric,"Total, vehicle type",Number of vehicles,Units,units,7508.0
+8836,2022-07,British Columbia and the Territories,Battery electric,Passenger cars,Number of vehicles,Units,units,3755.0
+8837,2022-07,British Columbia and the Territories,Battery electric,Pickup trucks,Number of vehicles,Units,units,263.0
+8838,2022-07,British Columbia and the Territories,Battery electric,Multi-purpose vehicles,Number of vehicles,Units,units,3448.0
+8839,2022-07,British Columbia and the Territories,Battery electric,Vans,Number of vehicles,Units,units,42.0
+8840,2022-07,British Columbia and the Territories,Hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,3258.0
+8841,2022-07,British Columbia and the Territories,Hybrid electric,Passenger cars,Number of vehicles,Units,units,643.0
+8842,2022-07,British Columbia and the Territories,Hybrid electric,Pickup trucks,Number of vehicles,Units,units,452.0
+8843,2022-07,British Columbia and the Territories,Hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,2025.0
+8844,2022-07,British Columbia and the Territories,Hybrid electric,Vans,Number of vehicles,Units,units,138.0
+8845,2022-07,British Columbia and the Territories,Plug-in hybrid electric,"Total, vehicle type",Number of vehicles,Units,units,785.0
+8846,2022-07,British Columbia and the Territories,Plug-in hybrid electric,Passenger cars,Number of vehicles,Units,units,219.0
+8847,2022-07,British Columbia and the Territories,Plug-in hybrid electric,Pickup trucks,Number of vehicles,Units,units,0.0
+8848,2022-07,British Columbia and the Territories,Plug-in hybrid electric,Multi-purpose vehicles,Number of vehicles,Units,units,541.0
+8849,2022-07,British Columbia and the Territories,Plug-in hybrid electric,Vans,Number of vehicles,Units,units,25.0
+8850,2022-07,British Columbia and the Territories,Other fuel types,"Total, vehicle type",Number of vehicles,Units,units,5.0
+8851,2022-07,British Columbia and the Territories,Other fuel types,Passenger cars,Number of vehicles,Units,units,5.0
+8852,2022-07,British Columbia and the Territories,Other fuel types,Pickup trucks,Number of vehicles,Units,units,0.0
+8853,2022-07,British Columbia and the Territories,Other fuel types,Multi-purpose vehicles,Number of vehicles,Units,units,0.0
+8854,2022-07,British Columbia and the Territories,Other fuel types,Vans,Number of vehicles,Units,units,0.0

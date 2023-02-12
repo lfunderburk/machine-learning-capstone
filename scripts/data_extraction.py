@@ -355,8 +355,8 @@ def process_json_car_sales(json_filen_name, path) -> list():
 
 if __name__=='__main__':
     # Set up relative paths
-    sys.path.append(os.path.abspath(os.path.join('..','./data/', './raw-data/')))
-    sys.path.append(os.path.abspath(os.path.join('..','./data/', './clean-data/')))
+    sys.path.append(os.path.abspath(os.path.join('.','./data/', './raw-data/')))
+    sys.path.append(os.path.abspath(os.path.join('.','./data/', './clean-data/')))
     paths = sys.path
     raw_path = [item for item in paths if "machine-learning-capstone\\data\\raw-data" in item]
     clean_path = [item for item in paths if "machine-learning-capstone\\data\\clean-data" in item]
@@ -393,9 +393,15 @@ if __name__=='__main__':
         if "hybrid" in name:
             final_df['mapped_fuel_type'] = final_df['fuel.1_type2'].map(fuel_dict)
             final_df['hybrid_fuels'] = final_df['fuel_type1'].map(hybrid_fuel_dict)
+            # Add an id column with numbers from 1 to the length of the dataframe
+            final_df['id'] = range(1, len(final_df) + 1)
+            final_df['vehicle_type'] = "hybrid"
             final_df.to_csv(Path(clean_data_path,file_name), index=False)
         elif "electric" in name and "hybrid" not in name: 
             final_df['mapped_fuel_type'] = final_df['fuel_type'].map(fuel_dict)
+            # Add an id column with numbers from 1 to the length of the dataframe
+            final_df['id'] = range(1, len(final_df) + 1)
+            final_df['vehicle_type'] = "electric"
             final_df.to_csv(Path(clean_data_path,file_name), index=False)
         else:
             final_df['mapped_fuel_type'] = final_df['fuel_type'].map(fuel_dict)
@@ -404,7 +410,14 @@ if __name__=='__main__':
 
     # Concatenate all dataframes
     fuel_based_df = pd.concat(fuel_based_df)
- 
+
+    # add an id column where each row is a unique id (1, 2, 3, 4, ...)
+    fuel_based_df['id'] = range(1, len(fuel_based_df) + 1)
+
+    # Add a column called vehicle_type
+    fuel_based_df['vehicle_type'] = "fuel-only"
+    
+
     # Save dataframes
     fuel_based_df.to_csv(Path(clean_data_path,"1995_2022_vehicle_fuel_consumption.csv"), index=False)
     

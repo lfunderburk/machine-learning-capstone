@@ -19,18 +19,7 @@ from imblearn.over_sampling import SMOTE
 import joblib
 import utils
 
-
-def remove_missing_values(fuel_df):
-    # Set up data pipeline - goal is to predict co2_rating 
-    non_na_rating = fuel_df[~fuel_df['co2_rating'].isna()]
-    non_na_rating_class = non_na_rating.copy()
-    non_na_rating_class['co2_rating'] = non_na_rating_class['co2_rating'].astype(int)
-
-    # Drop smog_rating from non_na_rating
-    non_na_rating_class.drop(columns=['smog_rating'], inplace=True)
-    non_na_rating_class['number_of_gears'].fillna(0, inplace=True)
-
-    return non_na_rating_class
+# TO DO: follow this tutorial to complete both smog and co2 ratings https://machinelearningmastery.com/knn-imputation-for-missing-values-in-machine-learning/
 
 def train_and_evaluate_model(X_train, y_train, X_test, y_test, model_pipeline, model_name):
     """
@@ -125,7 +114,7 @@ if __name__=="__main__":
 
     # Read data
     fuel_df, electric_df, hybrid_df = utils.read_data("./data/clean-data/")
-    non_na_rating_class = remove_missing_values(fuel_df)
+    non_na_rating_class, na_rating_class = utils.remove_missing_values(fuel_df)
     
     # Set X and Y variables 
     # Response variable
@@ -171,7 +160,7 @@ if __name__=="__main__":
     best_dtc, dtc_score = classify_grid_search_cv_tuning(model, params, X_train, X_test, y_train, y_test, n_folds=10, scoring='balanced_accuracy')
 
     # Save model
-    joblib.dump(best_dtc, './models/hard_voting_classifier.pkl')
+    joblib.dump(best_dtc, './models/hard_voting_classifier_co2_fuel.pkl')
 
     
 

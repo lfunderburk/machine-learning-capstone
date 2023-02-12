@@ -10,3 +10,7 @@ tasks:
       data: data/clean-data/Plug-in_hybrid_electric_vehicles_2012-2022_(2022-03-28).csv
       data: data/clean-data/vehicle_registrations_type_vehicle.csv
       data: data/clean-data/wide_format_car_sales.csv
+  - source: scripts/car_score_modelling.py
+    product:
+      nb: notebooks/ploomber-output/car_score_modelling.ipynb
+      data: models/hard_voting_classifier_co2_fuel.pkl

@@ -10,13 +10,17 @@ var_list = ['vehicleclass_','make_',
                     'cylinders_','fuelconsumption_city(l/100km)',
                     'fuelconsumption_hwy(l/100km)',
                     'fuelconsumption_comb(l/100km)',
-                    'fuelconsumption_comb(mpg)',
+                    #'fuelconsumption_comb(mpg)',
                     'co2emissions_(g/km)',
                     'number_of_gears']
 
 # Set up parameters for the model - numerical and categorical
-numeric_features =  ['model_year','cylinders_','fuelconsumption_city(l/100km)','fuelconsumption_hwy(l/100km)',
-                    'fuelconsumption_comb(l/100km)','fuelconsumption_comb(mpg)','co2emissions_(g/km)','number_of_gears']
+numeric_features =  ['model_year','cylinders_',
+                    'fuelconsumption_city(l/100km)',
+                    'fuelconsumption_hwy(l/100km)',
+                    'fuelconsumption_comb(l/100km)',
+                    #'fuelconsumption_comb(mpg)',
+                    'co2emissions_(g/km)','number_of_gears']
 categorical_features = ['vehicleclass_']
 
 # Set up numerical and categorical transformers
@@ -33,6 +37,26 @@ preprocessor = ColumnTransformer(
         #("cat", categorical_transformer, categorical_features),
     ]
 )
+
+def remove_missing_values(fuel_df, drop_smog=True, rating_column='co2_rating', drop_column='smog_rating'):
+
+    # Drop smog_rating from non_na_rating
+    if drop_smog:
+        fuel_df.drop(columns=[drop_column], inplace=True)
+    else:
+        pass
+    fuel_df['number_of_gears'].fillna(0, inplace=True)
+
+    # Set up data pipeline - goal is to predict co2_rating 
+    na_rating = fuel_df[fuel_df[rating_column].isna()]
+    non_na_rating = fuel_df[~fuel_df[rating_column].isna()]
+
+    non_na_rating_class = non_na_rating.copy()
+    na_rating_class = na_rating.copy()
+
+    non_na_rating_class[rating_column] = non_na_rating_class[rating_column].astype(int)
+
+    return non_na_rating_class, na_rating_class
 
 def read_data(path):
     """
