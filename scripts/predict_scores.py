@@ -2,6 +2,8 @@ import pandas as pd
 import sys, os
 import joblib
 import utils
+from sklearn.impute import KNNImputer
+
 
 def predict_co2_rating(df, list_of_vars, model):
     # Preprocess the original data (fuel_df)
@@ -20,7 +22,22 @@ def predict_co2_rating(df, list_of_vars, model):
 
     return fuel_df_pred
 
-    
+def impute_data(numeric_features, df, target):
+
+    df_c = df.copy()
+    # Independent variables
+    X = df_c[numeric_features + [target]]
+
+    missing_values_index = df_c[df_c.isnull().any(axis=1)].index
+
+    imputer = KNNImputer(n_neighbors=1)
+    X_imputed = imputer.fit_transform(X)
+
+    X_imputed[missing_values_index, -1]
+
+    df_c.loc[missing_values_index, target] =  X_imputed[missing_values_index, -1]
+
+    return df_c
 
 if __name__=="__main__":
 
@@ -46,5 +63,23 @@ if __name__=="__main__":
     fuel_df_pred = pd.concat([non_na_pred, na_pred], axis=0)
     
     # Save the data
-    fuel_df_pred.to_csv('./data/clean-data/predicted_co2_rating.csv', index=False)
+    fuel_df_pred.to_csv('./data/predicted-data/predicted_co2_rating.csv', index=False)
+
+    # Predict missing "co2_rating" values in hybrid_df
+    hybrid_df_pred = impute_data(utils.numeric_features, hybrid_df, 'co2_rating')
+
+    # Save the data
+    hybrid_df_pred.to_csv('./data/predicted-data/predicted_co2_rating_hybrid.csv', index=False)
+
+    num_e = ['model_year','consumption_city(kwh/100km)',
+            'fuelconsumption_hwy(kwh/100km)', 'fuelconsumption_comb(kwh/100km)',
+            'fuelconsumption_city(le/100km)', 'fuelconsumption_hwy(le/100km)',
+            'fuelconsumption_comb(le/100km)','recharge_time(h)',
+            'co2emissions_(g/km)']
+
+    # Predict missing "co2_rating" values in electric_df
+    electric_df_pred = impute_data(num_e, electric_df, 'co2_rating')
+
+    # Save the data
+    electric_df_pred.to_csv('./data/predicted-data/predicted_co2_rating_electric.csv', index=False)
 

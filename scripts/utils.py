@@ -40,16 +40,18 @@ preprocessor = ColumnTransformer(
 
 def remove_missing_values(fuel_df, drop_smog=True, rating_column='co2_rating', drop_column='smog_rating'):
 
+    fuel_df_copy = fuel_df.copy()
+
     # Drop smog_rating from non_na_rating
     if drop_smog:
-        fuel_df.drop(columns=[drop_column], inplace=True)
+        fuel_df_copy.drop(columns=[drop_column], inplace=True)
     else:
         pass
-    fuel_df['number_of_gears'].fillna(0, inplace=True)
+    fuel_df_copy['number_of_gears'].fillna(0, inplace=True)
 
     # Set up data pipeline - goal is to predict co2_rating 
-    na_rating = fuel_df[fuel_df[rating_column].isna()]
-    non_na_rating = fuel_df[~fuel_df[rating_column].isna()]
+    na_rating = fuel_df_copy[fuel_df_copy[rating_column].isna()]
+    non_na_rating = fuel_df_copy[~fuel_df_copy[rating_column].isna()]
 
     non_na_rating_class = non_na_rating.copy()
     na_rating_class = na_rating.copy()
