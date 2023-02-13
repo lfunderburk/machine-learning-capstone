@@ -3,6 +3,24 @@ import sys, os
 import joblib
 import utils
 
+def predict_co2_rating(df, list_of_vars, model):
+    # Preprocess the original data (fuel_df)
+    X_fuel = df[list_of_vars].copy()
+    target = df['original_co2r'].copy()
+
+    # Get remaining columns from df
+    remaining_cols = [col for col in df.columns if col not in list_of_vars and col != 'original_co2r']
+    remaining_df = df[remaining_cols].copy()
+
+    # Predict missing "co2_rating" values
+    X_fuel['predicted_co2_rating'] = model.predict(X_fuel)
+
+    # Merge the predicted values with the original data
+    fuel_df_pred = pd.concat([X_fuel, target, remaining_df], axis=1)
+
+    return fuel_df_pred
+
+    
 
 if __name__=="__main__":
 
@@ -19,24 +37,14 @@ if __name__=="__main__":
 
     # Load model
     best_dtc = joblib.load('./models/hard_voting_classifier_co2_fuel.pkl')
+    
+    # Use model to make predictions
+    non_na_pred = predict_co2_rating(non_na_rating_class, utils.var_list, best_dtc)
+    na_pred = predict_co2_rating(na_rating_class, utils.var_list, best_dtc)
 
-    predictions = []
-    for item in [non_na_rating_class, na_rating_class]:
-        # Preprocess the original data (fuel_df)
-        X_fuel = item[utils.var_list].copy()
-        target = item['original_co2r'].copy()
-
-        # Predict missing "co2_rating" values
-        X_fuel['predicted_co2_rating'] = best_dtc.predict(X_fuel)
-
-        # Merge the predicted values with the original data
-        fuel_df_pred = pd.concat([X_fuel, target], axis=1)
-
-        # Append to list
-        predictions.append(fuel_df_pred)
-
-    # Concatenate the two dataframes
-    fuel_df_pred = pd.concat(predictions, axis=0)
-
+    # Merge the predicted values with the original data
+    fuel_df_pred = pd.concat([non_na_pred, na_pred], axis=0)
+    
     # Save the data
     fuel_df_pred.to_csv('./data/clean-data/predicted_co2_rating.csv', index=False)
+

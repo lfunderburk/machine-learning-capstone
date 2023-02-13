@@ -79,11 +79,11 @@ def read_data(path):
     """
     
     # Fuel based cars
-    file_name_2022_1995 = "1995_2022_vehicle_fuel_consumption.csv"
+    file_name_2022_1995 = "1995_today_vehicle_fuel_consumption.csv"
     
     # Electric cars
-    pure_electric = "Battery-electric_vehicles_2012-2022_(2022-05-16).csv"
-    hybric_vehicle = "Plug-in_hybrid_electric_vehicles_2012-2022_(2022-03-28).csv"
+    pure_electric = "Batteryelectric_vehicles__.csv"
+    hybric_vehicle = "Plugin_hybrid_electric_vehicles__.csv"
 
     # Read data files
     fuel_df = pd.read_csv(Path(path ,f'{file_name_2022_1995}'))

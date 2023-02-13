@@ -11,12 +11,12 @@ import plotly.graph_objects as go
 
 def display_table(dataframe, title_str):
 
-    df = dataframe[["model_year", "model.1_", "vehicleclass_", "co2emissions_(g/km)", "co2_rating"]]
+    df = dataframe[["model_year", "model.1_", "vehicleclass_", "co2emissions_(g/km)", "predicted_co2_rating"]]
     df.rename(columns = {"model_year": "Year",
                         "model.1_": "Model name",
                         "vehicleclass_": "Class",
                         "co2emissions_(g/km)": "CO2 Emissions (g/km)",
-                        "co2_rating":"Rating" }, inplace=True)
+                        "predicted_co2_rating":"Rating" }, inplace=True)
     fig = go.Figure(data=[go.Table(
         header=dict(values=list(df.columns),
                     fill_color='rgb(47, 15 , 61)',
@@ -45,11 +45,11 @@ def display_table(dataframe, title_str):
 
 def generate_bar_chart_with_models(dataframe):
 
-    model_average_co2 = dataframe.groupby(["model.1_",'model_year',"co2_rating"])['co2emissions_(g/km)'].mean().reset_index().sort_values(by='co2emissions_(g/km)', \
+    model_average_co2 = dataframe.groupby(["model.1_",'model_year',"predicted_co2_rating"])['co2emissions_(g/km)'].mean().reset_index().sort_values(by='co2emissions_(g/km)', \
                                                                                            ascending=False).rename(columns={"co2emissions_(g/km)":"Average CO2 emissions",
                                                                                                                            "model.1_":"Model name",
                                                                                                                                'model_year': "Model year",
-                                                                                                                               "co2_rating": "CO2 rating"})
+                                                                                                                               "predicted_co2_rating": "CO2 rating"})
     model_average_co2['Model year'] = model_average_co2['Model year'].astype(str)
     year_min = model_average_co2['Model year'].min() 
     year_max = model_average_co2['Model year'].max() 
@@ -153,9 +153,9 @@ clean_path = [item for item in paths if "machine-learning-capstone\\data\\clean-
 clean_data = clean_path[0]
 
 # Assign variables 
-file_name_2022_1995 = "1995_2022_vehicle_fuel_consumption.csv"
-pure_electric = "Battery-electric_vehicles_2012-2022_(2022-05-16).csv"
-hybric_vehicle = "Plug-in_hybrid_electric_vehicles_2012-2022_(2022-03-28).csv"
+file_name_2022_1995 = "predicted_co2_rating.csv"
+pure_electric = "Batteryelectric_vehicles__.csv"
+hybric_vehicle = "Plugin_hybrid_electric_vehicles__.csv"
 
 # Read data
 master_df = pd.read_csv(Path(clean_data,f'{file_name_2022_1995}'))
@@ -283,7 +283,7 @@ menu_card = dbc.Card(
                     dcc.Dropdown(
                         id='end-year',
                         options=[i + 1 for i in range(year_min-1, year_max)],
-                        value= 2022,
+                        value= 2023,
                         style={'backgroundColor':"white"}),
                 ],  className="two columns")
             ], className="row"),
@@ -429,7 +429,7 @@ def update_frequency_chart(make, start_year, end_year):
     dataframe = sel_dataframe[(sel_dataframe['make_']==make) & 
                               (sel_dataframe['model_year']>=start_year) &
                                (sel_dataframe['model_year']<=end_year)  &
-                               (sel_dataframe['co2_rating']>=7) ]
+                               (sel_dataframe['predicted_co2_rating']>=7) ]
     title_str = "Models with a CO2 rating of 7 or above"
     fig0 = display_table(dataframe, title_str)
     return fig0
@@ -447,7 +447,7 @@ def update_frequency_chart(make, start_year, end_year):
     dataframe = sel_dataframe[(sel_dataframe['make_']==make) & 
                               (sel_dataframe['model_year']>=start_year) &
                                (sel_dataframe['model_year']<=end_year)  &
-                               (sel_dataframe['co2_rating']<=3) ]
+                               (sel_dataframe['predicted_co2_rating']<=3) ]
     title_str = "Models with a CO2 rating of 3 or lower"
     fig0 = display_table(dataframe, title_str)
     return fig0

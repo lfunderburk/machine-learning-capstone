@@ -377,6 +377,8 @@ if __name__=='__main__':
         
         if "Original" in name:
             continue
+
+        
         # Form file name
         file_name = f'{name.replace(" ","_")}.csv'
 
@@ -391,15 +393,31 @@ if __name__=='__main__':
 
         # Populate dataframe with information from the footnotes
         if "hybrid" in name:
-            final_df['mapped_fuel_type'] = final_df['fuel.1_type2'].map(fuel_dict)
+            # Strip numbers from file_name
+            name = re.sub(r'\d+', '', name)
+            # Strip parenthesis and - from name
+            name = name.replace("(","").replace(")","").replace("-","")
+            # Form file name
+            file_name = f'{name.replace(" ","_")}.csv'
+
+            final_df.rename(columns={'fuel.1_type2': 'fuel_type2',
+                          'consumption.1_city(l/100km)': 'fuelconsumption_city(l/100km)',
+                        }, inplace=True)
+            final_df['mapped_fuel_type'] = final_df['fuel_type2'].map(fuel_dict)
             final_df['hybrid_fuels'] = final_df['fuel_type1'].map(hybrid_fuel_dict)
-            # Add an id column with numbers from 1 to the length of the dataframe
+            
             final_df['id'] = range(1, len(final_df) + 1)
             final_df['vehicle_type'] = "hybrid"
             final_df.to_csv(Path(clean_data_path,file_name), index=False)
         elif "electric" in name and "hybrid" not in name: 
+            # Strip numbers from file_name
+            name = re.sub(r'\d+', '', name)
+            # Strip parenthesis and - from name
+            name = name.replace("(","").replace(")","").replace("-","")
+            # Form file name
+            file_name = f'{name.replace(" ","_")}.csv'
+
             final_df['mapped_fuel_type'] = final_df['fuel_type'].map(fuel_dict)
-            # Add an id column with numbers from 1 to the length of the dataframe
             final_df['id'] = range(1, len(final_df) + 1)
             final_df['vehicle_type'] = "electric"
             final_df.to_csv(Path(clean_data_path,file_name), index=False)
@@ -419,7 +437,7 @@ if __name__=='__main__':
     
 
     # Save dataframes
-    fuel_based_df.to_csv(Path(clean_data_path,"1995_2022_vehicle_fuel_consumption.csv"), index=False)
+    fuel_based_df.to_csv(Path(clean_data_path,"1995_today_vehicle_fuel_consumption.csv"), index=False)
     
     # Extract StatsCan data
     for keys in stats_can_dict:
