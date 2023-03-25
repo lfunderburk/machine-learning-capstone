@@ -3,9 +3,7 @@ channels:
   - defaults
 dependencies:
   - python=3.10
-  - pip
+  - pip==21.3.1
   - ipykernel
   - mkl
   - pyodbc
-  - pip:
-    - -r requirements.txt

@@ -84,22 +84,24 @@ def generate_scatter_or_box(dataframe, y_var):
             label = y_var.replace("_"," ").capitalize()
         fig = px.scatter(data_frame=dataframe, 
                y=y_var,
-               x='co2emissions_(g/km)', 
-               color=y_var,
+               x='model_year', 
+               size='co2emissions_(g/km)',
+                color='predicted_co2_rating',
                color_discrete_sequence= px.colors.sequential.matter,
-               hover_name="model.1_", hover_data=["model_year", "make_"],
-             labels={y_var: label, 'co2emissions_(g/km)': "CO2 emissions (g/km)"},
-             title= f"Relationship between CO2 emissions and {label}")
+               hover_data=['model.1_', 'model_year', 'vehicleclass_'],
+             labels={y_var: label, 'model_year': "Year of manufacture"},
+             title= f"{label} over time")
     else:
         label = y_var.replace("_"," ").capitalize()
-        fig = px.box(data_frame=dataframe, 
+        fig = px.scatter(data_frame=dataframe, 
                y=y_var,
-               x='co2emissions_(g/km)', 
-               color=y_var,
+               x='model_year',
+               size='co2emissions_(g/km)', 
+               color='predicted_co2_rating',
                color_discrete_sequence= px.colors.sequential.matter,
-               hover_name="make_", hover_data=["model_year", "model.1_"],
-             labels={y_var: label, 'co2emissions_(g/km)': "CO2 emissions (g/km)"},
-             title= f"Relationship between CO2 emissions and {label}")
+                hover_data=['model.1_', 'model_year', 'vehicleclass_'],
+             labels={y_var: label, 'model_year': "Year of manufacture"},
+             title= f"{label} over time")
     fig.update_layout(
             title_x=0.5,
             plot_bgcolor=colors['background'],
@@ -147,15 +149,12 @@ def generate_count_plot(attribute, vehicle_type, dataframe):
         print("Dimension is not valid. ")
         
 # Set data read path
-sys.path.append(os.path.abspath(os.path.join('.','./data/', './clean-data/')))
-paths = sys.path
-clean_path = [item for item in paths if "machine-learning-capstone\\data\\clean-data" in item]
-clean_data = clean_path[0]
+clean_data = os.path.abspath(os.path.join(os.getcwd(), 'data', 'predicted-data'))
 
 # Assign variables 
 file_name_2022_1995 = "predicted_co2_rating.csv"
-pure_electric = "Batteryelectric_vehicles__.csv"
-hybric_vehicle = "Plugin_hybrid_electric_vehicles__.csv"
+pure_electric = "predicted_co2_rating_electric.csv"
+hybric_vehicle = "predicted_co2_rating_hybrid.csv"
 
 # Read data
 master_df = pd.read_csv(Path(clean_data,f'{file_name_2022_1995}'))
@@ -246,14 +245,7 @@ menu_card = dbc.Card(
                         id='attribute',
                         options=[
                                 {'label': 'Vehicle class', 'value': 'vehicleclass_'},
-                                {'label': 'Transmission', 'value': 'transmission_'},
-                                {'label': 'Make', 'value': 'make_'},
-                                {'label': 'Transmission type', 'value': 'transmission_type'},
-                                {'label': 'Number of gears', 'value': 'number_of_gears'},
-                                {'label':"CO2 Emissions", 'value': 'co2emissions_(g/km)'},
-                                {'label':"Engine size", "value":"enginesize_(l)"},
-                                 {'label':"Number of cylinders", "value":"cylinders_"},
-                                 {'label':"Fuel type", "value":"mapped_fuel_type"},
+                                {'label':"Fuel type", "value":"mapped_fuel_type"},
                                  {"label": "Fuel consumption in city (l/100km)", "value": "fuelconsumption_city(l/100km)"},
                                  {"label": "Fuel consumption in highway (l/km)", "value": "fuelconsumption_hwy(l/100km)"},
                                  {"label": "Fuel consumption combined (l/km)", "value": "fuelconsumption_comb(l/100km)"},
@@ -271,21 +263,21 @@ menu_card = dbc.Card(
                 ],  className="two columns"),
 
                 html.Div([
-                    html.P("Select a start year", style=header_menu_style),
+                    html.P("Select a year", style=header_menu_style),
                     dcc.Dropdown(
                         id='start-year',
                         options=[i + 1 for i in range(year_min-1, year_max)],
-                        value= 1995,
+                        value= 2020,
                         style={'backgroundColor':"white"}),
                 ],  className="two columns"),
                 html.Div([
-                    html.P("Select an end year", style=header_menu_style),
+                    html.P("Select a CO2 rating", style=header_menu_style),
                     dcc.Dropdown(
-                        id='end-year',
-                        options=[i + 1 for i in range(year_min-1, year_max)],
-                        value= 2023,
+                        id='co2-rating',
+                        options=[i + 1 for i in range(0, 11)],
+                        value= 5,
                         style={'backgroundColor':"white"}),
-                ],  className="two columns")
+                ],  className="two columns"),
             ], className="row"),
 
         ]
@@ -298,27 +290,26 @@ plots_card = dbc.Card(
         html.Div([
                     html.Div([
                             dcc.Graph(id='graph-dist_fuel')
-                        ], className="four columns"),
+                        ], className="six columns"),
 
+                    
                     html.Div([
                             dcc.Graph(id='graph-scatter-box')
-                        ], className="four columns"),
-
-                    html.Div([
-                            dcc.Graph(id='graph-models-released')
-                        ], className="four columns"),
+                        ], className="six columns"),
+                    
                     
                 ], className="row"),
 
         html.Div([
                     html.Div([
                             dcc.Graph(id='table-of-scores')
-                        ], className="four columns", ),
+                        ], className="six columns", ),
 
-                    html.Div([
-                            dcc.Graph(id='table-of-scores-bottom')
-                        ], className="four columns", ),
+                 
 
+                html.Div([
+                            dcc.Graph(id='graph-models-released')
+                        ], className="six columns"),
                     
                 ], className="row"),
     ]), style={'backgroundColor': colors['background']}
@@ -377,13 +368,13 @@ app.layout = html.Div([
     [Input('attribute', 'value'),
     Input('select-make', 'value'),
     Input('start-year', 'value'),
-    Input('end-year', 'value')])
-def update_frequency_chart(attribute, make, start_year, end_year):
+    Input('co2-rating', 'value')])
+def update_frequency_chart(attribute, make, start_year, co2_rating):
     vehicle_type = "fuel-only"
     sel_dataframe = dataframe_dictionary[vehicle_type]
     dataframe = sel_dataframe[(sel_dataframe['make_']==make) & 
                               (sel_dataframe['model_year']>=start_year) &
-                               (sel_dataframe['model_year']<=end_year)  ]
+                              (sel_dataframe['predicted_co2_rating']>=co2_rating)]
     fig0 = generate_count_plot(attribute, vehicle_type, dataframe)
     return fig0
 
@@ -392,13 +383,13 @@ def update_frequency_chart(attribute, make, start_year, end_year):
     [Input('attribute', 'value'),
     Input('select-make', 'value'),
     Input('start-year', 'value'),
-    Input('end-year', 'value')])
-def update_frequency_chart(attribute, make, start_year, end_year):
+    Input('co2-rating', 'value')])
+def update_frequency_chart(attribute, make, start_year, co2_rating):
     vehicle_type = "fuel-only"
     sel_dataframe = dataframe_dictionary[vehicle_type]
     dataframe = sel_dataframe[(sel_dataframe['make_']==make) & 
-                              (sel_dataframe['model_year']>=start_year) &
-                               (sel_dataframe['model_year']<=end_year)  ]
+                              (sel_dataframe['model_year']>=start_year)  &
+                               (sel_dataframe['predicted_co2_rating']>=co2_rating) ]
     fig0 = generate_scatter_or_box( dataframe, attribute)
     return fig0
 
@@ -407,13 +398,13 @@ def update_frequency_chart(attribute, make, start_year, end_year):
     [
     Input('select-make', 'value'),
     Input('start-year', 'value'),
-    Input('end-year', 'value')])
-def update_frequency_chart(make, start_year, end_year):
+    Input('co2-rating', 'value')])
+def update_frequency_chart(make, start_year, co2_rating):
     vehicle_type = "fuel-only"
     sel_dataframe = dataframe_dictionary[vehicle_type]
     dataframe = sel_dataframe[(sel_dataframe['make_']==make) & 
-                              (sel_dataframe['model_year']>=start_year) &
-                               (sel_dataframe['model_year']<=end_year)  ]
+                              (sel_dataframe['model_year']>=start_year)  & 
+                              (sel_dataframe['predicted_co2_rating']>=co2_rating) ]
     fig0 = generate_bar_chart_with_models(dataframe)
     return fig0
 
@@ -421,36 +412,19 @@ def update_frequency_chart(make, start_year, end_year):
     Output('table-of-scores', 'figure'),
     [
     Input('select-make', 'value'),
-    Input('start-year', 'value'),
-    Input('end-year', 'value')])
-def update_frequency_chart(make, start_year, end_year):
+    Input('start-year', 'value')])
+def update_frequency_chart(make, start_year):
     vehicle_type = "fuel-only"
     sel_dataframe = dataframe_dictionary[vehicle_type]
     dataframe = sel_dataframe[(sel_dataframe['make_']==make) & 
-                              (sel_dataframe['model_year']>=start_year) &
-                               (sel_dataframe['model_year']<=end_year)  &
+                              (sel_dataframe['model_year']>=start_year)  &
                                (sel_dataframe['predicted_co2_rating']>=7) ]
     title_str = "Models with a CO2 rating of 7 or above"
     fig0 = display_table(dataframe, title_str)
     return fig0
 
 
-@app.callback(
-    Output('table-of-scores-bottom', 'figure'),
-    [
-    Input('select-make', 'value'),
-    Input('start-year', 'value'),
-    Input('end-year', 'value')])
-def update_frequency_chart(make, start_year, end_year):
-    vehicle_type = "fuel-only"
-    sel_dataframe = dataframe_dictionary[vehicle_type]
-    dataframe = sel_dataframe[(sel_dataframe['make_']==make) & 
-                              (sel_dataframe['model_year']>=start_year) &
-                               (sel_dataframe['model_year']<=end_year)  &
-                               (sel_dataframe['predicted_co2_rating']<=3) ]
-    title_str = "Models with a CO2 rating of 3 or lower"
-    fig0 = display_table(dataframe, title_str)
-    return fig0
+
 
 if __name__ == '__main__':  
     
