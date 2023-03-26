@@ -1,65 +1,65 @@
 model_year,make_,model.1_,vehicleclass_,motor_(kw),transmission_,fuel_type,consumption_city(kwh/100km),fuelconsumption_hwy(kwh/100km),fuelconsumption_comb(kwh/100km),fuelconsumption_city(le/100km),fuelconsumption_hwy(le/100km),fuelconsumption_comb(le/100km),range_(km),co2emissions_(g/km),co2_rating,smog_rating,recharge_time(h),transmission_type,number_of_gears,mapped_fuel_type,id,vehicle_type
-2012,mitsubishi,i-miev,subcompact,49,A1,B,16.9,21.4,18.7,1.9,2.4,2.1,100,0,10.0,,7.0,automatic,1,electricity,1,electric
-2012,nissan,leaf,mid-size,80,A1,B,19.3,23.0,21.1,2.2,2.6,2.4,117,0,10.0,,7.0,automatic,1,electricity,2,electric
-2013,ford,focus electric,compact,107,A1,B,19.0,21.1,20.0,2.1,2.4,2.2,122,0,10.0,,4.0,automatic,1,electricity,3,electric
-2013,mitsubishi,i-miev,subcompact,49,A1,B,16.9,21.4,18.7,1.9,2.4,2.1,100,0,10.0,,7.0,automatic,1,electricity,4,electric
-2013,nissan,leaf,mid-size,80,A1,B,19.3,23.0,21.1,2.2,2.6,2.4,117,0,10.0,,7.0,automatic,1,electricity,5,electric
-2013,smart,fortwo electric drive cabriolet,two-seater,35,A1,B,17.2,22.5,19.6,1.9,2.5,2.2,109,0,10.0,,8.0,automatic,1,electricity,6,electric
-2013,smart,fortwo electric drive coupe,two-seater,35,A1,B,17.2,22.5,19.6,1.9,2.5,2.2,109,0,10.0,,8.0,automatic,1,electricity,7,electric
-2013,tesla,model s (40 kwh),full-size,225,A1,B,22.4,21.9,22.2,2.5,2.5,2.5,224,0,10.0,,6.0,automatic,1,electricity,8,electric
-2013,tesla,model s (60 kwh),full-size,225,A1,B,22.2,21.7,21.9,2.5,2.4,2.5,335,0,10.0,,10.0,automatic,1,electricity,9,electric
-2013,tesla,model s (85 kwh),full-size,270,A1,B,23.8,23.2,23.6,2.7,2.6,2.6,426,0,10.0,,12.0,automatic,1,electricity,10,electric
-2013,tesla,model s performance,full-size,310,A1,B,23.9,23.2,23.6,2.7,2.6,2.6,426,0,10.0,,12.0,automatic,1,electricity,11,electric
-2014,chevrolet,spark ev,subcompact,104,A1,B,16.0,19.6,17.8,1.8,2.2,2.0,131,0,10.0,,7.0,automatic,1,electricity,12,electric
-2014,ford,focus electric,compact,107,A1,B,19.0,21.1,20.0,2.1,2.4,2.2,122,0,10.0,,4.0,automatic,1,electricity,13,electric
-2014,mitsubishi,i-miev,subcompact,49,A1,B,16.9,21.4,18.7,1.9,2.4,2.1,100,0,10.0,,7.0,automatic,1,electricity,14,electric
-2014,nissan,leaf,mid-size,80,A1,B,16.5,20.8,18.4,1.9,2.3,2.1,135,0,10.0,,5.0,automatic,1,electricity,15,electric
-2014,smart,fortwo electric drive cabriolet,two-seater,35,A1,B,17.2,22.5,19.6,1.9,2.5,2.2,109,0,10.0,,8.0,automatic,1,electricity,16,electric
-2014,smart,fortwo electric drive coupe,two-seater,35,A1,B,17.2,22.5,19.6,1.9,2.5,2.2,109,0,10.0,,8.0,automatic,1,electricity,17,electric
-2014,tesla,model s (60 kwh),full-size,225,A1,B,22.2,21.7,21.9,2.5,2.4,2.5,335,0,10.0,,10.0,automatic,1,electricity,18,electric
-2014,tesla,model s (85 kwh),full-size,270,A1,B,23.8,23.2,23.6,2.7,2.6,2.6,426,0,10.0,,12.0,automatic,1,electricity,19,electric
-2014,tesla,model s performance,full-size,310,A1,B,23.9,23.2,23.6,2.7,2.6,2.6,426,0,10.0,,12.0,automatic,1,electricity,20,electric
-2015,bmw,i3,subcompact,125,A1,B,15.2,18.8,16.8,1.7,2.1,1.9,130,0,10.0,,4.0,automatic,1,electricity,21,electric
-2015,chevrolet,spark ev,subcompact,104,A1,B,16.0,19.6,17.8,1.8,2.2,2.0,131,0,10.0,,7.0,automatic,1,electricity,22,electric
-2015,ford,focus electric,compact,107,A1,B,19.0,21.1,20.0,2.1,2.4,2.2,122,0,10.0,,4.0,automatic,1,electricity,23,electric
-2015,kia,soul ev,station wagon - small,81,A1,B,17.5,22.7,19.9,2.0,2.6,2.2,149,0,10.0,,4.0,automatic,1,electricity,24,electric
-2015,mitsubishi,i-miev,subcompact,49,A1,B,16.9,21.4,18.7,1.9,2.4,2.1,100,0,10.0,,7.0,automatic,1,electricity,25,electric
-2015,nissan,leaf,mid-size,80,A1,B,16.5,20.8,18.4,1.9,2.3,2.1,135,0,10.0,,5.0,automatic,1,electricity,26,electric
-2015,smart,fortwo electric drive cabriolet,two-seater,35,A1,B,17.2,22.5,19.6,1.9,2.5,2.2,109,0,10.0,,8.0,automatic,1,electricity,27,electric
-2015,smart,fortwo electric drive coupe,two-seater,35,A1,B,17.2,22.5,19.6,1.9,2.5,2.2,109,0,10.0,,8.0,automatic,1,electricity,28,electric
-2015,tesla,model s (60 kwh),full-size,285,A1,B,22.2,21.7,21.9,2.5,2.4,2.5,335,0,10.0,,10.0,automatic,1,electricity,29,electric
-2015,tesla,model s (70 kwh),full-size,285,A1,B,23.8,23.2,23.6,2.7,2.6,2.6,377,0,10.0,,12.0,automatic,1,electricity,30,electric
-2015,tesla,model s (85/90 kwh),full-size,285,A1,B,23.8,23.2,23.6,2.7,2.6,2.6,426,0,10.0,,12.0,automatic,1,electricity,31,electric
-2015,tesla,model s 70d,full-size,280,A1,B,20.8,20.6,20.7,2.3,2.3,2.3,386,0,10.0,,12.0,automatic,1,electricity,32,electric
-2015,tesla,model s 85d/90d,full-size,280,A1,B,22.0,19.8,21.0,2.5,2.2,2.4,435,0,10.0,,12.0,automatic,1,electricity,33,electric
-2015,tesla,model s p85d/p90d,full-size,515,A1,B,23.4,21.5,22.5,2.6,2.4,2.5,407,0,10.0,,12.0,automatic,1,electricity,34,electric
-2016,bmw,i3,subcompact,125,A1,B,15.2,18.8,16.8,1.7,2.1,1.9,130,0,10.0,,4.0,automatic,1,electricity,35,electric
-2016,chevrolet,spark ev,subcompact,104,A1,B,16.0,19.6,17.8,1.8,2.2,2.0,131,0,10.0,,7.0,automatic,1,electricity,36,electric
-2016,ford,focus electric,compact,107,A1,B,19.0,21.1,20.0,2.1,2.4,2.2,122,0,10.0,,4.0,automatic,1,electricity,37,electric
-2016,kia,soul ev,station wagon - small,81,A1,B,17.5,22.7,19.9,2.0,2.6,2.2,149,0,10.0,,4.0,automatic,1,electricity,38,electric
-2016,mitsubishi,i-miev,subcompact,49,A1,B,16.9,21.4,18.7,1.9,2.4,2.1,100,0,10.0,,7.0,automatic,1,electricity,39,electric
-2016,nissan,leaf (24 kwh),mid-size,80,A1,B,16.5,20.8,18.4,1.9,2.3,2.1,135,0,10.0,,5.0,automatic,1,electricity,40,electric
-2016,nissan,leaf (30 kwh),mid-size,80,A1,B,17.0,20.7,18.6,1.9,2.3,2.1,172,0,10.0,,6.0,automatic,1,electricity,41,electric
-2016,smart,fortwo electric drive cabriolet,two-seater,35,A1,B,17.2,22.5,19.6,1.9,2.5,2.2,109,0,10.0,,8.0,automatic,1,electricity,42,electric
-2016,smart,fortwo electric drive coupe,two-seater,35,A1,B,17.2,22.5,19.6,1.9,2.5,2.2,109,0,10.0,,8.0,automatic,1,electricity,43,electric
-2016,tesla,model s (60 kwh pre- 6/16),full-size,285,A1,B,22.2,21.7,21.9,2.5,2.4,2.5,335,0,10.0,,10.0,automatic,1,electricity,44,electric
-2016,tesla,model s (60 kwh),full-size,285,A1,B,21.5,20.7,21.1,2.4,2.3,2.4,338,0,10.0,,10.0,automatic,1,electricity,45,electric
-2016,tesla,model s (70 kwh),full-size,285,A1,B,23.8,23.2,23.6,2.7,2.6,2.6,377,0,10.0,,12.0,automatic,1,electricity,46,electric
-2016,tesla,model s (75 kwh),full-size,285,A1,B,21.5,21.0,21.3,2.4,2.4,2.4,401,0,10.0,,12.0,automatic,1,electricity,47,electric
-2016,tesla,model s (85/90 kwh),full-size,285,A1,B,23.8,23.2,23.6,2.7,2.6,2.6,426,0,10.0,,12.0,automatic,1,electricity,48,electric
-2016,tesla,model s 60d,full-size,386,A1,B,20.6,19.6,20.2,2.3,2.2,2.3,351,0,10.0,,10.0,automatic,1,electricity,49,electric
-2016,tesla,model s 70d,full-size,386,A1,B,20.8,20.6,20.7,2.3,2.3,2.3,386,0,10.0,,12.0,automatic,1,electricity,50,electric
-2016,tesla,model s 75d,full-size,386,A1,B,20.6,19.9,20.3,2.3,2.2,2.3,417,0,10.0,,12.0,automatic,1,electricity,51,electric
-2016,tesla,model s 85d/90d,full-size,386,A1,B,22.0,19.8,21.0,2.5,2.2,2.4,435,0,10.0,,12.0,automatic,1,electricity,52,electric
-2016,tesla,model s 90d (refresh),full-size,386,A1,B,20.8,19.7,20.3,2.3,2.2,2.3,473,0,10.0,,12.0,automatic,1,electricity,53,electric
-2016,tesla,model s p85d/p90d,full-size,568,A1,B,23.4,21.5,22.5,2.6,2.4,2.5,407,0,10.0,,12.0,automatic,1,electricity,54,electric
-2016,tesla,model s p90d (refresh),full-size,568,A1,B,22.9,21.0,22.1,2.6,2.4,2.5,435,0,10.0,,12.0,automatic,1,electricity,55,electric
-2016,tesla,model s p100d,full-size,568,A1,B,22.6,20.0,21.5,2.5,2.3,2.4,507,0,10.0,,12.0,automatic,1,electricity,56,electric
-2016,tesla,model x 60d,suv - standard,386,A1,B,23.0,22.2,22.6,2.6,2.5,2.5,322,0,10.0,,10.0,automatic,1,electricity,57,electric
-2016,tesla,model x 75d,suv - standard,386,A1,B,23.0,21.9,22.5,2.6,2.5,2.5,383,0,10.0,,12.0,automatic,1,electricity,58,electric
-2016,tesla,model x 90d,suv - standard,386,A1,B,23.2,22.2,22.7,2.6,2.5,2.6,414,0,10.0,,12.0,automatic,1,electricity,59,electric
-2016,tesla,model x p90d,suv - standard,568,A1,B,23.6,23.3,23.5,2.7,2.6,2.6,402,0,10.0,,12.0,automatic,1,electricity,60,electric
-2016,tesla,model x p100d,suv - standard,568,A1,B,25.7,22.9,24.4,2.9,2.6,2.7,465,0,10.0,,12.0,automatic,1,electricity,61,electric
+2012,mitsubishi,i-miev,subcompact,49,A1,B,16.9,21.4,18.7,1.9,2.4,2.1,100,0,10.0,10.0,7.0,automatic,1,electricity,1,electric
+2012,nissan,leaf,mid-size,80,A1,B,19.3,23.0,21.1,2.2,2.6,2.4,117,0,10.0,10.0,7.0,automatic,1,electricity,2,electric
+2013,ford,focus electric,compact,107,A1,B,19.0,21.1,20.0,2.1,2.4,2.2,122,0,10.0,10.0,4.0,automatic,1,electricity,3,electric
+2013,mitsubishi,i-miev,subcompact,49,A1,B,16.9,21.4,18.7,1.9,2.4,2.1,100,0,10.0,10.0,7.0,automatic,1,electricity,4,electric
+2013,nissan,leaf,mid-size,80,A1,B,19.3,23.0,21.1,2.2,2.6,2.4,117,0,10.0,10.0,7.0,automatic,1,electricity,5,electric
+2013,smart,fortwo electric drive cabriolet,two-seater,35,A1,B,17.2,22.5,19.6,1.9,2.5,2.2,109,0,10.0,10.0,8.0,automatic,1,electricity,6,electric
+2013,smart,fortwo electric drive coupe,two-seater,35,A1,B,17.2,22.5,19.6,1.9,2.5,2.2,109,0,10.0,10.0,8.0,automatic,1,electricity,7,electric
+2013,tesla,model s (40 kwh),full-size,225,A1,B,22.4,21.9,22.2,2.5,2.5,2.5,224,0,10.0,10.0,6.0,automatic,1,electricity,8,electric
+2013,tesla,model s (60 kwh),full-size,225,A1,B,22.2,21.7,21.9,2.5,2.4,2.5,335,0,10.0,10.0,10.0,automatic,1,electricity,9,electric
+2013,tesla,model s (85 kwh),full-size,270,A1,B,23.8,23.2,23.6,2.7,2.6,2.6,426,0,10.0,10.0,12.0,automatic,1,electricity,10,electric
+2013,tesla,model s performance,full-size,310,A1,B,23.9,23.2,23.6,2.7,2.6,2.6,426,0,10.0,10.0,12.0,automatic,1,electricity,11,electric
+2014,chevrolet,spark ev,subcompact,104,A1,B,16.0,19.6,17.8,1.8,2.2,2.0,131,0,10.0,10.0,7.0,automatic,1,electricity,12,electric
+2014,ford,focus electric,compact,107,A1,B,19.0,21.1,20.0,2.1,2.4,2.2,122,0,10.0,10.0,4.0,automatic,1,electricity,13,electric
+2014,mitsubishi,i-miev,subcompact,49,A1,B,16.9,21.4,18.7,1.9,2.4,2.1,100,0,10.0,10.0,7.0,automatic,1,electricity,14,electric
+2014,nissan,leaf,mid-size,80,A1,B,16.5,20.8,18.4,1.9,2.3,2.1,135,0,10.0,10.0,5.0,automatic,1,electricity,15,electric
+2014,smart,fortwo electric drive cabriolet,two-seater,35,A1,B,17.2,22.5,19.6,1.9,2.5,2.2,109,0,10.0,10.0,8.0,automatic,1,electricity,16,electric
+2014,smart,fortwo electric drive coupe,two-seater,35,A1,B,17.2,22.5,19.6,1.9,2.5,2.2,109,0,10.0,10.0,8.0,automatic,1,electricity,17,electric
+2014,tesla,model s (60 kwh),full-size,225,A1,B,22.2,21.7,21.9,2.5,2.4,2.5,335,0,10.0,10.0,10.0,automatic,1,electricity,18,electric
+2014,tesla,model s (85 kwh),full-size,270,A1,B,23.8,23.2,23.6,2.7,2.6,2.6,426,0,10.0,10.0,12.0,automatic,1,electricity,19,electric
+2014,tesla,model s performance,full-size,310,A1,B,23.9,23.2,23.6,2.7,2.6,2.6,426,0,10.0,10.0,12.0,automatic,1,electricity,20,electric
+2015,bmw,i3,subcompact,125,A1,B,15.2,18.8,16.8,1.7,2.1,1.9,130,0,10.0,10.0,4.0,automatic,1,electricity,21,electric
+2015,chevrolet,spark ev,subcompact,104,A1,B,16.0,19.6,17.8,1.8,2.2,2.0,131,0,10.0,10.0,7.0,automatic,1,electricity,22,electric
+2015,ford,focus electric,compact,107,A1,B,19.0,21.1,20.0,2.1,2.4,2.2,122,0,10.0,10.0,4.0,automatic,1,electricity,23,electric
+2015,kia,soul ev,station wagon - small,81,A1,B,17.5,22.7,19.9,2.0,2.6,2.2,149,0,10.0,10.0,4.0,automatic,1,electricity,24,electric
+2015,mitsubishi,i-miev,subcompact,49,A1,B,16.9,21.4,18.7,1.9,2.4,2.1,100,0,10.0,10.0,7.0,automatic,1,electricity,25,electric
+2015,nissan,leaf,mid-size,80,A1,B,16.5,20.8,18.4,1.9,2.3,2.1,135,0,10.0,10.0,5.0,automatic,1,electricity,26,electric
+2015,smart,fortwo electric drive cabriolet,two-seater,35,A1,B,17.2,22.5,19.6,1.9,2.5,2.2,109,0,10.0,10.0,8.0,automatic,1,electricity,27,electric
+2015,smart,fortwo electric drive coupe,two-seater,35,A1,B,17.2,22.5,19.6,1.9,2.5,2.2,109,0,10.0,10.0,8.0,automatic,1,electricity,28,electric
+2015,tesla,model s (60 kwh),full-size,285,A1,B,22.2,21.7,21.9,2.5,2.4,2.5,335,0,10.0,10.0,10.0,automatic,1,electricity,29,electric
+2015,tesla,model s (70 kwh),full-size,285,A1,B,23.8,23.2,23.6,2.7,2.6,2.6,377,0,10.0,10.0,12.0,automatic,1,electricity,30,electric
+2015,tesla,model s (85/90 kwh),full-size,285,A1,B,23.8,23.2,23.6,2.7,2.6,2.6,426,0,10.0,10.0,12.0,automatic,1,electricity,31,electric
+2015,tesla,model s 70d,full-size,280,A1,B,20.8,20.6,20.7,2.3,2.3,2.3,386,0,10.0,10.0,12.0,automatic,1,electricity,32,electric
+2015,tesla,model s 85d/90d,full-size,280,A1,B,22.0,19.8,21.0,2.5,2.2,2.4,435,0,10.0,10.0,12.0,automatic,1,electricity,33,electric
+2015,tesla,model s p85d/p90d,full-size,515,A1,B,23.4,21.5,22.5,2.6,2.4,2.5,407,0,10.0,10.0,12.0,automatic,1,electricity,34,electric
+2016,bmw,i3,subcompact,125,A1,B,15.2,18.8,16.8,1.7,2.1,1.9,130,0,10.0,10.0,4.0,automatic,1,electricity,35,electric
+2016,chevrolet,spark ev,subcompact,104,A1,B,16.0,19.6,17.8,1.8,2.2,2.0,131,0,10.0,10.0,7.0,automatic,1,electricity,36,electric
+2016,ford,focus electric,compact,107,A1,B,19.0,21.1,20.0,2.1,2.4,2.2,122,0,10.0,10.0,4.0,automatic,1,electricity,37,electric
+2016,kia,soul ev,station wagon - small,81,A1,B,17.5,22.7,19.9,2.0,2.6,2.2,149,0,10.0,10.0,4.0,automatic,1,electricity,38,electric
+2016,mitsubishi,i-miev,subcompact,49,A1,B,16.9,21.4,18.7,1.9,2.4,2.1,100,0,10.0,10.0,7.0,automatic,1,electricity,39,electric
+2016,nissan,leaf (24 kwh),mid-size,80,A1,B,16.5,20.8,18.4,1.9,2.3,2.1,135,0,10.0,10.0,5.0,automatic,1,electricity,40,electric
+2016,nissan,leaf (30 kwh),mid-size,80,A1,B,17.0,20.7,18.6,1.9,2.3,2.1,172,0,10.0,10.0,6.0,automatic,1,electricity,41,electric
+2016,smart,fortwo electric drive cabriolet,two-seater,35,A1,B,17.2,22.5,19.6,1.9,2.5,2.2,109,0,10.0,10.0,8.0,automatic,1,electricity,42,electric
+2016,smart,fortwo electric drive coupe,two-seater,35,A1,B,17.2,22.5,19.6,1.9,2.5,2.2,109,0,10.0,10.0,8.0,automatic,1,electricity,43,electric
+2016,tesla,model s (60 kwh pre- 6/16),full-size,285,A1,B,22.2,21.7,21.9,2.5,2.4,2.5,335,0,10.0,10.0,10.0,automatic,1,electricity,44,electric
+2016,tesla,model s (60 kwh),full-size,285,A1,B,21.5,20.7,21.1,2.4,2.3,2.4,338,0,10.0,10.0,10.0,automatic,1,electricity,45,electric
+2016,tesla,model s (70 kwh),full-size,285,A1,B,23.8,23.2,23.6,2.7,2.6,2.6,377,0,10.0,10.0,12.0,automatic,1,electricity,46,electric
+2016,tesla,model s (75 kwh),full-size,285,A1,B,21.5,21.0,21.3,2.4,2.4,2.4,401,0,10.0,10.0,12.0,automatic,1,electricity,47,electric
+2016,tesla,model s (85/90 kwh),full-size,285,A1,B,23.8,23.2,23.6,2.7,2.6,2.6,426,0,10.0,10.0,12.0,automatic,1,electricity,48,electric
+2016,tesla,model s 60d,full-size,386,A1,B,20.6,19.6,20.2,2.3,2.2,2.3,351,0,10.0,10.0,10.0,automatic,1,electricity,49,electric
+2016,tesla,model s 70d,full-size,386,A1,B,20.8,20.6,20.7,2.3,2.3,2.3,386,0,10.0,10.0,12.0,automatic,1,electricity,50,electric
+2016,tesla,model s 75d,full-size,386,A1,B,20.6,19.9,20.3,2.3,2.2,2.3,417,0,10.0,10.0,12.0,automatic,1,electricity,51,electric
+2016,tesla,model s 85d/90d,full-size,386,A1,B,22.0,19.8,21.0,2.5,2.2,2.4,435,0,10.0,10.0,12.0,automatic,1,electricity,52,electric
+2016,tesla,model s 90d (refresh),full-size,386,A1,B,20.8,19.7,20.3,2.3,2.2,2.3,473,0,10.0,10.0,12.0,automatic,1,electricity,53,electric
+2016,tesla,model s p85d/p90d,full-size,568,A1,B,23.4,21.5,22.5,2.6,2.4,2.5,407,0,10.0,10.0,12.0,automatic,1,electricity,54,electric
+2016,tesla,model s p90d (refresh),full-size,568,A1,B,22.9,21.0,22.1,2.6,2.4,2.5,435,0,10.0,10.0,12.0,automatic,1,electricity,55,electric
+2016,tesla,model s p100d,full-size,568,A1,B,22.6,20.0,21.5,2.5,2.3,2.4,507,0,10.0,10.0,12.0,automatic,1,electricity,56,electric
+2016,tesla,model x 60d,suv - standard,386,A1,B,23.0,22.2,22.6,2.6,2.5,2.5,322,0,10.0,10.0,10.0,automatic,1,electricity,57,electric
+2016,tesla,model x 75d,suv - standard,386,A1,B,23.0,21.9,22.5,2.6,2.5,2.5,383,0,10.0,10.0,12.0,automatic,1,electricity,58,electric
+2016,tesla,model x 90d,suv - standard,386,A1,B,23.2,22.2,22.7,2.6,2.5,2.6,414,0,10.0,10.0,12.0,automatic,1,electricity,59,electric
+2016,tesla,model x p90d,suv - standard,568,A1,B,23.6,23.3,23.5,2.7,2.6,2.6,402,0,10.0,10.0,12.0,automatic,1,electricity,60,electric
+2016,tesla,model x p100d,suv - standard,568,A1,B,25.7,22.9,24.4,2.9,2.6,2.7,465,0,10.0,10.0,12.0,automatic,1,electricity,61,electric
 2017,bmw,i3 (60 ah),subcompact,125,A1,B,15.2,18.8,16.8,1.7,2.1,1.9,130,0,10.0,10.0,4.0,automatic,1,electricity,62,electric
 2017,bmw,i3 (94 ah),subcompact,125,A1,B,16.2,19.7,17.8,1.8,2.2,2.0,183,0,10.0,10.0,5.0,automatic,1,electricity,63,electric
 2017,chevrolet,bolt ev,station wagon - small,150,A1,B,16.4,19.0,17.6,1.8,2.1,2.0,383,0,10.0,10.0,9.3,automatic,1,electricity,64,electric

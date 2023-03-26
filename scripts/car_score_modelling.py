@@ -64,7 +64,8 @@ def train_and_evaluate_model(X_train, y_train, X_test, y_test, model_pipeline, m
         f"Confusion Matrix for {model_name}"
     )
     
-    plt.show()
+    # save image to file
+    fig.savefig(f"./reports/{model_name}_confusion_matrix.png")
     
     print(report, sep=',')
     
@@ -114,7 +115,7 @@ if __name__=="__main__":
 
     # Read data
     fuel_df, electric_df, hybrid_df = utils.read_data("./data/clean-data/")
-    non_na_rating_class, na_rating_class = utils.remove_missing_values(fuel_df)
+    non_na_rating_class, na_rating_class = utils.remove_missing_values(fuel_df, drop_smog=False)
     
     # Set X and Y variables 
     # Response variable

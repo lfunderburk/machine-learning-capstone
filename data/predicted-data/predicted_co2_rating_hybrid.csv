@@ -1,40 +1,40 @@
 model_year,make_,model.1_,vehicleclass_,motor_(kw),enginesize_(l),cylinders_,transmission_,fuel_type1,consumption_combinedle/100km,range1_(km),recharge_time(h),fuel_type2,fuelconsumption_city(l/100km),fuelconsumption_hwy(l/100km),fuelconsumption_comb(l/100km),range2_(km),co2emissions_(g/km),co2_rating,smog_rating,transmission_type,number_of_gears,mapped_fuel_type,hybrid_fuels,id,vehicle_type
-2012,chevrolet,volt,compact,111,1.4,4.0,AV,B,2.5 (22.3 kWh/100 km),56,4.0,Z,6.7,5.9,6.4,550,54,10.0,,continuously variable,,premium gasoline,electricity,1,hybrid
-2013,chevrolet,volt,compact,111,1.4,4.0,AV,B,2.4 (21.4 kWh/100 km),61,4.0,Z,6.7,5.9,6.4,550,45,10.0,,continuously variable,,premium gasoline,electricity,2,hybrid
-2013,ford,c-max energi,mid-size,35,2.0,4.0,AV,B/X,2.7 ([23.2 kWh + 0.1 L]/100 km),32,2.5,X,5.8,6.5,6.1,856,80,10.0,,continuously variable,,regular gasoline,electricity & regular gasoline,3,hybrid
-2013,ford,fusion energi,mid-size,35,2.0,4.0,AV,B/X,2.7 ([23.2 kWh + 0.1 L]/100 km),32,2.5,X,5.8,6.5,6.1,856,80,10.0,,continuously variable,,regular gasoline,electricity & regular gasoline,4,hybrid
-2013,toyota,prius plug-in hybrid,mid-size,60,1.8,4.0,AV,B/X,2.5 ([18.0 kWh + 0.4 L]/100 km),18,1.5,X,4.7,4.8,4.7,845,101,10.0,,continuously variable,,regular gasoline,electricity & regular gasoline,5,hybrid
-2014,cadillac,elr,compact,117,1.4,4.0,AV,B,2.9 (25.3 kWh/100 km),59,5.0,Z,7.6,6.7,7.2,493,50,10.0,,continuously variable,,premium gasoline,electricity,6,hybrid
-2014,chevrolet,volt,compact,111,1.4,4.0,AV,B,2.4 (21.4 kWh/100 km),61,4.0,Z,6.7,5.9,6.4,550,45,10.0,,continuously variable,,premium gasoline,electricity,7,hybrid
-2014,ford,c-max energi,mid-size,35,2.0,4.0,AV,B/X,2.7 ([23.2 kWh + 0.1 L]/100 km),32,2.5,X,5.8,6.5,6.1,856,80,10.0,,continuously variable,,regular gasoline,electricity & regular gasoline,8,hybrid
-2014,ford,fusion energi,mid-size,35,2.0,4.0,AV,B/X,2.7 ([23.2 kWh + 0.1 L]/100 km),32,2.5,X,5.8,6.5,6.1,856,80,10.0,,continuously variable,,regular gasoline,electricity & regular gasoline,9,hybrid
-2014,porsche,panamera s e-hybrid,full-size,71,3.0,6.0,A8,B/Z,4.6 ([31.7 kWh + 1.0 L]/100 km),26,3.0,Z,10.4,8.0,9.3,871,142,9.0,,automatic,8.0,premium gasoline,electricity & premium gasoline,10,hybrid
-2014,toyota,prius plug-in hybrid,mid-size,60,1.8,4.0,AV,B/X,2.5 ([18.0 kWh + 0.4 L]/100 km),18,1.5,X,4.7,4.8,4.7,845,101,10.0,,continuously variable,,regular gasoline,electricity & regular gasoline,11,hybrid
-2015,bmw,i3 rex,subcompact,125,0.6,2.0,A1,B,2.0 (17.9 kWh/100 km),116,4.0,Z,5.7,6.3,6.0,119,22,10.0,,automatic,1.0,premium gasoline,electricity,12,hybrid
-2015,bmw,i8,subcompact,96,1.5,3.0,A6,B/Z,3.1 ([26.9 kWh + 0.2 L]/100 km),24,2.0,Z,8.4,8.1,8.3,509,123,9.0,,automatic,6.0,premium gasoline,electricity & premium gasoline,13,hybrid
-2015,chevrolet,volt,compact,111,1.4,4.0,AV,B,2.4 (21.4 kWh/100 km),61,4.0,Z,6.7,5.9,6.4,547,50,10.0,,continuously variable,,premium gasoline,electricity,14,hybrid
-2015,ford,c-max energi,mid-size,35,2.0,4.0,AV,B/X,2.7 ([23.2 kWh + 0.1 L]/100 km),32,2.5,X,5.8,6.5,6.1,856,80,10.0,,continuously variable,,regular gasoline,electricity & regular gasoline,15,hybrid
-2015,ford,fusion energi,mid-size,35,2.0,4.0,AV,B/X,2.7 ([23.2 kWh + 0.1 L]/100 km),32,2.5,X,5.8,6.5,6.1,856,80,10.0,,continuously variable,,regular gasoline,electricity & regular gasoline,16,hybrid
-2015,porsche,918 spyder,two-seater,157,4.6,8.0,A7,B,3.4 (30.7 kWh/100 km),21,3.0,Z,11.5,10.0,10.9,649,172,7.0,,automatic,7.0,premium gasoline,electricity,17,hybrid
-2015,porsche,cayenne s e-hybrid,suv - standard,71,3.0,6.0,A8,B,5.0 (43.2 kWh/100 km),24,3.0,Z,11.3,9.8,10.6,758,162,8.0,,automatic,8.0,premium gasoline,electricity,18,hybrid
-2015,porsche,panamera s e-hybrid,full-size,71,3.0,6.0,A8,B/Z,4.6 ([31.7 kWh + 1.0 L]/100 km),26,3.0,Z,10.4,8.0,9.3,871,142,9.0,,automatic,8.0,premium gasoline,electricity & premium gasoline,19,hybrid
-2015,toyota,prius plug-in hybrid,mid-size,60,1.8,4.0,AV,B/X,2.5 ([18.0 kWh + 0.4 L]/100 km),18,1.5,X,4.7,4.8,4.7,845,101,10.0,,continuously variable,,regular gasoline,electricity & regular gasoline,20,hybrid
-2016,audi,a3 e-tron,compact,80,1.4,4.0,A6,B/Z*,2.8 ([25.2 kWh + 0.0 L]/100 km),26,2.5,Z,7.1,6.4,6.8,591,98,10.0,,automatic,6.0,premium gasoline,electricity & premium gasoline,21,hybrid
-2016,audi,a3 e-tron ultra,compact,80,1.4,4.0,A6,B/Z*,2.7 ([23.9 kWh + 0.0 L]/100 km),27,2.5,Z,6.4,5.7,6.1,663,85,10.0,,automatic,6.0,premium gasoline,electricity & premium gasoline,22,hybrid
-2016,bmw,330e,compact,65,2.0,4.0,AS8,B/Z*,3.3 ([29.1 kWh + 0.0 L]/100 km),23,2.0,Z,8.4,6.3,7.4,562,113,10.0,,automatic with select Shift,8.0,premium gasoline,electricity & premium gasoline,23,hybrid
-2016,bmw,i3 rex,subcompact,125,0.6,2.0,A1,B,2.0 (17.9 kWh/100 km),116,4.0,Z,5.7,6.3,6.0,119,22,10.0,,automatic,1.0,premium gasoline,electricity,24,hybrid
-2016,bmw,i8,subcompact,96,1.5,3.0,A6,B/Z,3.1 ([26.9 kWh + 0.2 L]/100 km),24,2.0,Z,8.4,8.1,8.3,509,123,9.0,,automatic,6.0,premium gasoline,electricity & premium gasoline,25,hybrid
-2016,bmw,x5 xdrive40e,suv - standard,83,2.0,4.0,AS8,B/Z*,4.2 ([36.8 kWh + 0.0 L]/100 km),23,3.0,Z,10.2,9.5,9.9,842,153,8.0,,automatic with select Shift,8.0,premium gasoline,electricity & premium gasoline,26,hybrid
-2016,cadillac,elr,subcompact,174,1.4,4.0,AV,B,2.7 (24.4 kWh/100 km),64,5.0,Z,7.6,7.1,7.4,480,57,10.0,,continuously variable,,premium gasoline,electricity,27,hybrid
-2016,cadillac,elr (performance pkg),subcompact,174,1.4,4.0,AV,B,2.9 (26.2 kWh/100 km),58,5.0,Z,8.4,7.1,7.8,457,65,10.0,,continuously variable,,premium gasoline,electricity,28,hybrid
-2016,chevrolet,volt,compact,111,1.5,4.0,AV,B,2.2 (19.9 kWh/100 km),85,4.5,X,5.5,5.6,5.6,591,32,10.0,,continuously variable,,regular gasoline,electricity,29,hybrid
-2016,ford,c-max energi,mid-size,35,2.0,4.0,AV,B/X,2.7 ([23.2 kWh + 0.1 L]/100 km),32,2.5,X,5.8,6.5,6.1,856,80,10.0,,continuously variable,,regular gasoline,electricity & regular gasoline,30,hybrid
-2016,ford,fusion energi,mid-size,35,2.0,4.0,AV,B/X,2.7 ([23.2 kWh + 0.1 L]/100 km),32,2.5,X,5.8,6.5,6.1,856,80,10.0,,continuously variable,,regular gasoline,electricity & regular gasoline,31,hybrid
-2016,hyundai,sonata plug-in hybrid,mid-size,50,2.0,4.0,AM6,B/X*,2.4 ([21.1 kWh + 0.0 L]/100 km),43,2.7,X,6.1,5.7,5.9,925,63,10.0,,automated manual,6.0,regular gasoline,electricity & regular gasoline,32,hybrid
-2016,mercedes-benz,s 550e,full-size,85,3.0,6.0,AS7,B/Z*,4.1 ([36.7 kWh + 0.0 L]/100 km),23,2.75,Z,10.0,7.8,9.0,695,141,9.0,,automatic with select Shift,7.0,premium gasoline,electricity & premium gasoline,33,hybrid
-2016,porsche,cayenne s e-hybrid,suv - standard,71,3.0,6.0,A8,B,5.0 (43.2 kWh/100 km),24,3.0,Z,11.3,9.8,10.6,758,162,8.0,,automatic,8.0,premium gasoline,electricity,34,hybrid
-2016,porsche,panamera s e-hybrid,full-size,71,3.0,6.0,A8,B/Z,4.6 ([31.7 kWh + 1.0 L]/100 km),26,3.0,Z,10.4,8.0,9.3,871,142,9.0,,automatic,8.0,premium gasoline,electricity & premium gasoline,35,hybrid
-2016,volvo,xc90 t8 awd,suv - standard,65,2.0,4.0,AS8,B/Z*,4.6 ([40.4 kWh + 0.0 L]/100 km),21,3.0,Z,10.1,8.8,9.5,529,150,8.0,,automatic with select Shift,8.0,premium gasoline,electricity & premium gasoline,36,hybrid
+2012,chevrolet,volt,compact,111,1.4,4.0,AV,B,2.5 (22.3 kWh/100 km),56,4.0,Z,6.7,5.9,6.4,550,54,10.0,7.0,continuously variable,,premium gasoline,electricity,1,hybrid
+2013,chevrolet,volt,compact,111,1.4,4.0,AV,B,2.4 (21.4 kWh/100 km),61,4.0,Z,6.7,5.9,6.4,550,45,10.0,7.0,continuously variable,,premium gasoline,electricity,2,hybrid
+2013,ford,c-max energi,mid-size,35,2.0,4.0,AV,B/X,2.7 ([23.2 kWh + 0.1 L]/100 km),32,2.5,X,5.8,6.5,6.1,856,80,10.0,8.0,continuously variable,,regular gasoline,electricity & regular gasoline,3,hybrid
+2013,ford,fusion energi,mid-size,35,2.0,4.0,AV,B/X,2.7 ([23.2 kWh + 0.1 L]/100 km),32,2.5,X,5.8,6.5,6.1,856,80,10.0,8.0,continuously variable,,regular gasoline,electricity & regular gasoline,4,hybrid
+2013,toyota,prius plug-in hybrid,mid-size,60,1.8,4.0,AV,B/X,2.5 ([18.0 kWh + 0.4 L]/100 km),18,1.5,X,4.7,4.8,4.7,845,101,10.0,8.0,continuously variable,,regular gasoline,electricity & regular gasoline,5,hybrid
+2014,cadillac,elr,compact,117,1.4,4.0,AV,B,2.9 (25.3 kWh/100 km),59,5.0,Z,7.6,6.7,7.2,493,50,10.0,8.0,continuously variable,,premium gasoline,electricity,6,hybrid
+2014,chevrolet,volt,compact,111,1.4,4.0,AV,B,2.4 (21.4 kWh/100 km),61,4.0,Z,6.7,5.9,6.4,550,45,10.0,7.0,continuously variable,,premium gasoline,electricity,7,hybrid
+2014,ford,c-max energi,mid-size,35,2.0,4.0,AV,B/X,2.7 ([23.2 kWh + 0.1 L]/100 km),32,2.5,X,5.8,6.5,6.1,856,80,10.0,8.0,continuously variable,,regular gasoline,electricity & regular gasoline,8,hybrid
+2014,ford,fusion energi,mid-size,35,2.0,4.0,AV,B/X,2.7 ([23.2 kWh + 0.1 L]/100 km),32,2.5,X,5.8,6.5,6.1,856,80,10.0,8.0,continuously variable,,regular gasoline,electricity & regular gasoline,9,hybrid
+2014,porsche,panamera s e-hybrid,full-size,71,3.0,6.0,A8,B/Z,4.6 ([31.7 kWh + 1.0 L]/100 km),26,3.0,Z,10.4,8.0,9.3,871,142,9.0,6.0,automatic,8.0,premium gasoline,electricity & premium gasoline,10,hybrid
+2014,toyota,prius plug-in hybrid,mid-size,60,1.8,4.0,AV,B/X,2.5 ([18.0 kWh + 0.4 L]/100 km),18,1.5,X,4.7,4.8,4.7,845,101,10.0,8.0,continuously variable,,regular gasoline,electricity & regular gasoline,11,hybrid
+2015,bmw,i3 rex,subcompact,125,0.6,2.0,A1,B,2.0 (17.9 kWh/100 km),116,4.0,Z,5.7,6.3,6.0,119,22,10.0,8.0,automatic,1.0,premium gasoline,electricity,12,hybrid
+2015,bmw,i8,subcompact,96,1.5,3.0,A6,B/Z,3.1 ([26.9 kWh + 0.2 L]/100 km),24,2.0,Z,8.4,8.1,8.3,509,123,9.0,6.0,automatic,6.0,premium gasoline,electricity & premium gasoline,13,hybrid
+2015,chevrolet,volt,compact,111,1.4,4.0,AV,B,2.4 (21.4 kWh/100 km),61,4.0,Z,6.7,5.9,6.4,547,50,10.0,8.0,continuously variable,,premium gasoline,electricity,14,hybrid
+2015,ford,c-max energi,mid-size,35,2.0,4.0,AV,B/X,2.7 ([23.2 kWh + 0.1 L]/100 km),32,2.5,X,5.8,6.5,6.1,856,80,10.0,8.0,continuously variable,,regular gasoline,electricity & regular gasoline,15,hybrid
+2015,ford,fusion energi,mid-size,35,2.0,4.0,AV,B/X,2.7 ([23.2 kWh + 0.1 L]/100 km),32,2.5,X,5.8,6.5,6.1,856,80,10.0,8.0,continuously variable,,regular gasoline,electricity & regular gasoline,16,hybrid
+2015,porsche,918 spyder,two-seater,157,4.6,8.0,A7,B,3.4 (30.7 kWh/100 km),21,3.0,Z,11.5,10.0,10.9,649,172,7.0,3.0,automatic,7.0,premium gasoline,electricity,17,hybrid
+2015,porsche,cayenne s e-hybrid,suv - standard,71,3.0,6.0,A8,B,5.0 (43.2 kWh/100 km),24,3.0,Z,11.3,9.8,10.6,758,162,8.0,6.0,automatic,8.0,premium gasoline,electricity,18,hybrid
+2015,porsche,panamera s e-hybrid,full-size,71,3.0,6.0,A8,B/Z,4.6 ([31.7 kWh + 1.0 L]/100 km),26,3.0,Z,10.4,8.0,9.3,871,142,9.0,6.0,automatic,8.0,premium gasoline,electricity & premium gasoline,19,hybrid
+2015,toyota,prius plug-in hybrid,mid-size,60,1.8,4.0,AV,B/X,2.5 ([18.0 kWh + 0.4 L]/100 km),18,1.5,X,4.7,4.8,4.7,845,101,10.0,8.0,continuously variable,,regular gasoline,electricity & regular gasoline,20,hybrid
+2016,audi,a3 e-tron,compact,80,1.4,4.0,A6,B/Z*,2.8 ([25.2 kWh + 0.0 L]/100 km),26,2.5,Z,7.1,6.4,6.8,591,98,10.0,8.0,automatic,6.0,premium gasoline,electricity & premium gasoline,21,hybrid
+2016,audi,a3 e-tron ultra,compact,80,1.4,4.0,A6,B/Z*,2.7 ([23.9 kWh + 0.0 L]/100 km),27,2.5,Z,6.4,5.7,6.1,663,85,10.0,7.0,automatic,6.0,premium gasoline,electricity & premium gasoline,22,hybrid
+2016,bmw,330e,compact,65,2.0,4.0,AS8,B/Z*,3.3 ([29.1 kWh + 0.0 L]/100 km),23,2.0,Z,8.4,6.3,7.4,562,113,10.0,6.0,automatic with select Shift,8.0,premium gasoline,electricity & premium gasoline,23,hybrid
+2016,bmw,i3 rex,subcompact,125,0.6,2.0,A1,B,2.0 (17.9 kWh/100 km),116,4.0,Z,5.7,6.3,6.0,119,22,10.0,8.0,automatic,1.0,premium gasoline,electricity,24,hybrid
+2016,bmw,i8,subcompact,96,1.5,3.0,A6,B/Z,3.1 ([26.9 kWh + 0.2 L]/100 km),24,2.0,Z,8.4,8.1,8.3,509,123,9.0,6.0,automatic,6.0,premium gasoline,electricity & premium gasoline,25,hybrid
+2016,bmw,x5 xdrive40e,suv - standard,83,2.0,4.0,AS8,B/Z*,4.2 ([36.8 kWh + 0.0 L]/100 km),23,3.0,Z,10.2,9.5,9.9,842,153,8.0,6.0,automatic with select Shift,8.0,premium gasoline,electricity & premium gasoline,26,hybrid
+2016,cadillac,elr,subcompact,174,1.4,4.0,AV,B,2.7 (24.4 kWh/100 km),64,5.0,Z,7.6,7.1,7.4,480,57,10.0,8.0,continuously variable,,premium gasoline,electricity,27,hybrid
+2016,cadillac,elr (performance pkg),subcompact,174,1.4,4.0,AV,B,2.9 (26.2 kWh/100 km),58,5.0,Z,8.4,7.1,7.8,457,65,10.0,8.0,continuously variable,,premium gasoline,electricity,28,hybrid
+2016,chevrolet,volt,compact,111,1.5,4.0,AV,B,2.2 (19.9 kWh/100 km),85,4.5,X,5.5,5.6,5.6,591,32,10.0,6.0,continuously variable,,regular gasoline,electricity,29,hybrid
+2016,ford,c-max energi,mid-size,35,2.0,4.0,AV,B/X,2.7 ([23.2 kWh + 0.1 L]/100 km),32,2.5,X,5.8,6.5,6.1,856,80,10.0,8.0,continuously variable,,regular gasoline,electricity & regular gasoline,30,hybrid
+2016,ford,fusion energi,mid-size,35,2.0,4.0,AV,B/X,2.7 ([23.2 kWh + 0.1 L]/100 km),32,2.5,X,5.8,6.5,6.1,856,80,10.0,8.0,continuously variable,,regular gasoline,electricity & regular gasoline,31,hybrid
+2016,hyundai,sonata plug-in hybrid,mid-size,50,2.0,4.0,AM6,B/X*,2.4 ([21.1 kWh + 0.0 L]/100 km),43,2.7,X,6.1,5.7,5.9,925,63,10.0,8.0,automated manual,6.0,regular gasoline,electricity & regular gasoline,32,hybrid
+2016,mercedes-benz,s 550e,full-size,85,3.0,6.0,AS7,B/Z*,4.1 ([36.7 kWh + 0.0 L]/100 km),23,2.75,Z,10.0,7.8,9.0,695,141,9.0,6.0,automatic with select Shift,7.0,premium gasoline,electricity & premium gasoline,33,hybrid
+2016,porsche,cayenne s e-hybrid,suv - standard,71,3.0,6.0,A8,B,5.0 (43.2 kWh/100 km),24,3.0,Z,11.3,9.8,10.6,758,162,8.0,6.0,automatic,8.0,premium gasoline,electricity,34,hybrid
+2016,porsche,panamera s e-hybrid,full-size,71,3.0,6.0,A8,B/Z,4.6 ([31.7 kWh + 1.0 L]/100 km),26,3.0,Z,10.4,8.0,9.3,871,142,9.0,6.0,automatic,8.0,premium gasoline,electricity & premium gasoline,35,hybrid
+2016,volvo,xc90 t8 awd,suv - standard,65,2.0,4.0,AS8,B/Z*,4.6 ([40.4 kWh + 0.0 L]/100 km),21,3.0,Z,10.1,8.8,9.5,529,150,8.0,8.0,automatic with select Shift,8.0,premium gasoline,electricity & premium gasoline,36,hybrid
 2017,audi,a3 e-tron,compact,80,1.4,4.0,A6,B/Z*,2.8 ([25.5 kWh + 0.0 L]/100 km),26,2.5,Z,7.2,6.6,6.9,579,98,10.0,8.0,automatic,6.0,premium gasoline,electricity & premium gasoline,37,hybrid
 2017,bmw,330e,compact,65,2.0,4.0,AS8,B/Z*,3.3 ([29.5 kWh + 0.0 L]/100 km),23,2.0,Z,8.5,6.9,7.8,533,118,10.0,6.0,automatic with select Shift,8.0,premium gasoline,electricity & premium gasoline,38,hybrid
 2017,bmw,740e xdrive,full-size,83,2.0,4.0,AS8,B/Z*,3.6 ([32.1 kWh + 0.0 L]/100 km),23,3.0,Z,9.5,8.0,8.8,525,133,9.0,6.0,automatic with select Shift,8.0,premium gasoline,electricity & premium gasoline,39,hybrid

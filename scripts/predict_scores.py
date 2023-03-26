@@ -48,7 +48,7 @@ if __name__=="__main__":
     # Load data
     fuel_df, electric_df, hybrid_df = utils.read_data("./data/clean-data/")
     
-    non_na_rating_class, na_rating_class = utils.remove_missing_values(fuel_df)
+    non_na_rating_class, na_rating_class = utils.remove_missing_values(fuel_df, drop_smog=False)
     non_na_rating_class.rename(columns={'co2_rating': 'original_co2r'}, inplace=True)
     na_rating_class.rename(columns={'co2_rating': 'original_co2r'}, inplace=True)
 
@@ -61,12 +61,18 @@ if __name__=="__main__":
 
     # Merge the predicted values with the original data
     fuel_df_pred = pd.concat([non_na_pred, na_pred], axis=0)
+
+    # Impute smog_rating 
+    fuel_df_pred = impute_data(utils.numeric_features, fuel_df_pred, 'smog_rating')
     
     # Save the data
     fuel_df_pred.to_csv('./data/predicted-data/predicted_co2_rating.csv', index=False)
 
     # Predict missing "co2_rating" values in hybrid_df
     hybrid_df_pred = impute_data(utils.numeric_features, hybrid_df, 'co2_rating')
+
+    # Predict missing 'smog_rating' values in hybrid_df
+    hybrid_df_pred = impute_data(utils.numeric_features, hybrid_df_pred, 'smog_rating')
 
     # Save the data
     hybrid_df_pred.to_csv('./data/predicted-data/predicted_co2_rating_hybrid.csv', index=False)
@@ -79,6 +85,9 @@ if __name__=="__main__":
 
     # Predict missing "co2_rating" values in electric_df
     electric_df_pred = impute_data(num_e, electric_df, 'co2_rating')
+
+    # Predict missing 'smog_rating' values in electric_df
+    electric_df_pred = impute_data(num_e, electric_df_pred, 'smog_rating')
 
     # Save the data
     electric_df_pred.to_csv('./data/predicted-data/predicted_co2_rating_electric.csv', index=False)
